@@ -1,0 +1,10 @@
+wget --spider -O - https://yourwebsite.com/crons/orders.php >/dev/null 2>&1
+wget --spider -O - https://yourwebsite.com/crons/providers.php >/dev/null 2>&1
+wget --spider -O - https://yourwebsite.com/crons/checkToAPI.php >/dev/null 2>&1
+wget --spider -O - https://yourwebsite.com/crons/dripfeed.php >/dev/null 2>&1
+wget --spider -O - https://yourwebsite.com/crons/childpanels.php >/dev/null 2>&1
+
+Install https://www.youtube.com/watch?v=qTuZjYNz418&t=1s
+
+Username ADMIN
+Password 12345678

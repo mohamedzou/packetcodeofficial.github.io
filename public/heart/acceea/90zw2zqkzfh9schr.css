@@ -1,0 +1,521 @@
+.home_cont{
+	    background: linear-gradient(to left, #433064, #d43539);
+    max-width: 100% !important;
+    width: 100% !important;
+      height: 847px;
+  
+}
+table a:not(.btn), .table a:not(.btn) {
+    text-decoration: none !important;
+}
+span.badge {
+ 
+    padding: 5px !important;
+   
+}
+
+
+.singlab {
+    font-size: 1rem !important;
+    color: #000000 !important;
+    margin-bottom: 5px !important;
+    font-weight: 600 !important;
+}
+.beamer_defaultBeamerSelector {
+    right: 6em !important;
+}
+
+.panel-primary>.panel-heading {
+    color: #fff;
+    background: linear-gradient(to left, #433064, #d43539) !important;
+    border-color: transparent !important;
+  padding: 11px !important;
+}
+.faqcss {
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 16px;
+}
+@media (min-width: 768px){
+.navbar-right {
+    float: right!important;
+    margin-right: 0px !important;
+}}
+
+.home_contsingup{
+	    background: linear-gradient(to left, #433064, #d43539);
+    max-width: 100% !important;
+    width: 100% !important;
+     
+  
+}
+thead {
+    color: rgba(0, 0, 0, 0.75);
+        font-weight: 900 !important;
+  font-size: 17px !important;
+}
+nav ul li a:hover, nav ul li.active {
+    background-color: #ea454b;
+    border-radius: 12px !important;
+}
+.navbar-inverse .navbar-nav>li>.singup {
+    background-color: transparent !important;
+    color: #9d9d9d !important;
+   
+}
+
+.testimg {
+    text-align: center;
+}
+.rocksect {
+    margin-top: 10em;
+}
+footer {
+    font-size: .9rem;
+    display: none !important;
+}
+.white-logo-bar img {
+    width: 13%;
+    display: inline-block;
+    margin: 0 15px;
+}
+.white-logo-bar {
+    background: #f2f2f2;
+    position: relative;
+    text-align: center;
+    padding-top: 17px;
+}
+.dashboardPage .nav-tabs>li.active>a, .dashboardPage .nav-tabs>li.active>a:focus, .dashboardPage .nav-tabs>li.active>a:hover {
+    border-top: solid 3px #26a69a !important;
+    color: #26a69a !important;
+}
+.shadbox{-webkit-box-shadow: 0px 4px 7px -3px rgba(0,0,0,0.75) !important;
+    -moz-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.75) !important;
+    }
+
+.well {
+    
+    background-color: #f5f5f500 !important;
+    
+}
+.form-control {
+ 
+    padding-left: 7px !important;
+ 
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: #ffffff !important;
+    background: transparent;
+}
+.navbar-inverse .navbar-brand {
+    color: #ffffff !important;
+    padding-left: 28px !important;
+    padding-top: 7px !important;
+    font-size: 30px !important;
+      font-weight: 900 !important;
+}
+
+.navbar {
+    border-radius: initial !important;
+}
+.head-main {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+header, main, footer {
+    padding-left: 0px !important;
+}
+.navbar-inverse #menu-toggle .icon-bar {
+    background-color: #ffffff !important;
+}
+#menu-toggle {
+    float: right !important;
+    margin-right: 35px !important;
+    border: 1px solid #ffffff !important;
+    border-radius: 4px;
+    margin-left: 30px;
+}
+.pricestyle {
+        margin-top: 1em !important;
+    padding: 0px 0px 0px 0px !important;
+      line-height: 37px !important;
+      border: 2px solid #26a69a !important;
+    border-radius: 11px !important;
+    color: #26a69a !important;
+}
+.input-group {
+    
+    width: 100%;
+}
+.nav-pills {
+    margin-bottom: 10px;
+    margin-top: 2em;
+    margin-bottom: 0em;
+}
+.searc_h {
+    width: 72% !important;
+    padding-left: 1em !important;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+.searc_ico {
+    float: right !important;
+    padding-top: 14px;
+    padding-right: 15px;
+    cursor: pointer;
+    color: #23397c;
+}
+.footernk {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-bottom-style: none;
+    color: #c4c4c4;
+    text-decoration: none;
+  display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.foothead {
+       color: #fff;
+    font-size: 23px;
+    line-height: 1.25;
+    font-weight: 700;
+}
+.card{
+   
+   
+}
+.ser_c{
+	
+      width: 55%;
+}
+
+.sect_sect{
+	font-size: 20px;
+}
+.home_txt {
+    text-transform: inherit !important;
+    /* font-family: 'Patua One', cursive !important; */
+    text-align: center;
+    font-size: 38px;
+    line-height: 2;
+    width: 102%;
+    color: white;
+    font-weight: 600;
+}
+.home_well{
+	width: 57%;
+    margin-left: 30em;
+    margin-top: 5em;
+    border: none !important;
+    box-shadow: 1px 13px 18px -15px #6c757d !important;
+    /* background: linear-gradient(60deg, #53aefb00, #ffffff75) !important; */
+    background-color: #0000000f !important;
+}
+.image-container {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 500;
+}
+.top-float-img {
+            padding: 0 0 304px;
+    margin: 0 0 0px;
+    position: relative;
+    text-align: center;
+  margin-top: 34.4em;
+}
+.image-container {
+    width: 100%;
+}
+
+.image-container-roc {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 77%;
+    margin-left: 10em;
+    z-index: 500;
+}
+.top-float-img-roc {
+       padding: 0 0 61px;
+    margin: 0 0 0px;
+    position: relative;
+    text-align: center;
+}
+
+.heartb{
+	width: 58%;
+    position: absolute;
+    margin-top: -6em;
+    margin-left: -11em;
+  z-index: 99999;
+}
+
+.rockimg{
+	width: 92%;
+    
+}
+
+.section2{
+	    text-transform: inherit !important;
+        font-size: 30px;
+    line-height: 37px;
+      color: black;
+      position: relative;
+    
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 80%;
+    -ms-flex: 0 80%;
+    flex: 0 80%;
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 52px;
+    line-height: 1.2;
+    font-weight: 900;
+}
+.sect2-title{
+	
+    font-family: 'Patua One', cursive !important;
+    font-weight: 100;
+    font-size: 19px;
+    color: #505050;
+}
+.thirdsect {
+    background: linear-gradient(to left, #000000, #e8e8e8);
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 537px;
+   position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    min-height: 806px;
+    margin-bottom: 80px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-image: url(../../jasengine.com/wp-content/uploads/2019/09/space.png);
+    background-position: 69% 146%;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+.forthsect {
+    
+   background-image: url(../../i.ibb.co/Kxtky8g/bluecolr.png);
+    background-size: 1370px;
+    background-repeat: no-repeat;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-top: -8em !important;
+  height: 1800px;
+  background-position: 124% 146%;
+}
+.thirdsectdivimg {
+    margin-top: -9em;
+    width: 100%;
+}
+
+.thirdsectimg{
+	    width: 97%;
+    margin-top: 4em;
+}
+.forthpadl {
+   padding-left: 7em;
+}
+
+.forthpadr {
+   padding-right: 7em;
+}
+.forthhead {
+    text-transform: inherit !important;
+     text-align: center;
+    line-height: 67px;
+    width: 98%;
+    margin-bottom: 3em;
+  font-weight: 500;
+}
+.testi {
+    width: 100% !important;
+    background: linear-gradient(to left, #ff7081, #fbbe42);
+    max-width: 100% !important;
+      width: 100% !important;
+    background: linear-gradient(to left, #ff7081, #fbbe42);
+    max-width: 100% !important;
+    border-radius: 52em 84em 11em 140em;
+}
+.fifthsectimg {
+        width: 128%;
+    margin-top: -5em;
+    margin-bottom: -11em;
+}
+.footr {
+    width: 100% !important;
+    max-width: 100% !important;
+    background-color: #2b2b2b;
+}
+
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    display: block;
+    font-size: 24px;
+    height: 19px !important;
+    line-height: 56px;
+}
+::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1 !important; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888 !important; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555 !important; 
+}
+
+@media (max-width: 530px){
+.home_well {
+    margin-left: 2em;
+    width: 85%;
+    margin-top: 0em;
+}
+
+}
+@media (max-width: 988px){
+.home_well {
+    margin-left: 23em;
+    
+}
+  .rocksect {
+    margin-top: -13em;
+}
+  .thirdsect {
+    
+    height: fit-content;
+ 
+ 
+}
+  .forthsect {
+   
+        background-position: 1% -4%;
+    background-size: 1255px;
+}
+  .heartb {
+    width: 52%;
+    
+    margin-left: -5em;
+    
+}
+  .image-container-roc {
+   
+    margin-top: -35em ;
+    position: inherit;
+}
+  .image-container {
+   
+    margin-top: -8.5em;
+    position: inherit;
+}
+
+  
+.secndsect{
+  	   margin-top: 4em !important;
+  }
+.forthhead{
+    margin-top: 0em;
+}
+  .fifthsectimg {
+   
+    display: none;
+}
+  .testimohead{ 
+    text-align: center;
+  }
+}
+
+.testimocard {
+    padding: 1em;
+}
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+   
+    opacity: 1 !important;
+    position: inherit !important;
+}
+@media (max-width: 767px)
+.tab-content {
+    padding: 40px 16px !important;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  color: #b6b9bb !important;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+  color: #b6b9bb !important;
+}
+
+
+::placeholder {
+  color: #b6b9bb !important;
+}
+@media (max-width: 990px){
+.top-float-img {
+  
+    margin-top: 1.6em;
+  display: none;
+}
+  .top-float-img-roc {
+   
+    display: none;
+}
+  .home_txt {
+    
+    line-height: 50px;
+    margin-top: 4em;
+    margin-bottom: 2em;
+}
+  .beamer_defaultBeamerSelector {
+    width: 156px !important;
+    height: 156px !important;
+}
+  .beamer_defaultBeamerSelector {
+    right: 49em !important;
+    float: left;
+}
+  .servicesearch {
+    margin-top: 6em !important;
+}
+}
+
+.floating {  
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    
+}
+
+@keyframes floating {
+    from { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    to   { transform: translate(0, -0px); }    
+}

@@ -1,0 +1,688 @@
+{% include 'header.twig' %}
+      <main class="inner-wrap">
+        <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"><p class="breadcrumbs">You are currently on: <strong>Add funds</strong></p></div>
+    <div class="col-sm-4"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="noti-bar noti-success">
+        <div class="noti-icon"></div>
+                <p>Important: To Activate Visa/MasterCard Payments please contact us here  [ <a href="{{ site['url'] }}/tickets" target="_blank">Ticket</a> ]<br></p><p>Important: To Activate PayPal Payments please contact us here  [ <a href="{{ site['url'] }}/tickets" target="_blank">Ticket</a> ]<br></p><p>*If you Wanted to Pay via any other Method please contact  us via tickets</p>
+               
+      </div>
+    </div>
+  </div>
+  <div class="row">
+        <div class="col-md-7">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="#add-funds" aria-controls="add-funds" role="tab" data-toggle="tab">Add Funds</a></li>
+        <li><a href="#history" aria-controls="history" role="tab" data-toggle="tab">History</a></li>
+      </ul>
+      <div class="well">
+            {% if error %}
+                                      <div class="alert alert-dismissible alert-danger">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        {{ errorText }}
+                                      </div>
+                                    {% endif %}
+                                    {% if success %}
+                                      <div class="alert alert-dismissible alert-success">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        {{ successText }}
+                                      </div>
+                                    {% endif %}
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="add-funds">
+            <form  method="post" action="">
+                {% if paymentsList %}
+                                   
+                                    
+                              			<br>
+                                          <form method="post" action="addfunds">
+                            
+                                            <div class="form-group">
+                                              <label for="method" class="control-label">{{ lang['addfunds.method'] }}</label>
+                                              <select class="form-control" id="payment_method" name="payment_type">
+               {% for payment in paymentsList %}
+                        {% if payment['id'] != 20 %}
+                        <option value="{{ payment['id'] }}" {% if data['payment_type'] == payment['id'] %} selected {% endif %} >{{ payment['method_name'] }}</option>
+        {% endif %}
+                        {% endfor %}
+                                              </select>
+                                            </div>
+                            
+                                              <div class="form-group">
+                                                  <label for="method" class="control-label">{{ lang['addfunds.amount'] }}</label>
+                                                  <input class="form-control" name="payment_amount" value="{{ data['payment_amount'] }}">
+                                              </div>
+                            
+                                            <button type="submit" class="btn btn-block btn-primary" style="padding:0px;">{{ lang['addfunds.button'] }}</button>
+                                          </form>
+                                                                                                       
+                                                                                                     
+                                    {% endif %}
+            </form>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="history">
+              
+              
+																		  <table class="table" style="color:black;">
+										 <thead>
+											<tr>
+											   <th style="color:black;">ID</th>
+											   <th style="color:black;">Date</th>
+											   <th>Method</th>
+											   <th>Amount</th>
+											</tr>
+										 </thead>
+										 <tbody>
+										     {% for transaction in transactions %}
+										 											<tr>
+											   <td>{{ transaction['payment_id'] }}</td>
+											   <td><span class="nowrap">{{ transaction['payment_create_date'] }}</span></td>
+											   <td>₹ Paytm / UPI / Cards/Netbanking{{ transaction['method_name'] }}</td>
+											   <td><strong>{{ transaction['payment_amount'] }}</strong></td>
+											</tr>
+											{% endfor %}
+										 </tbody>
+										 
+									  </table>
+									  
+              
+                      </div>
+        </div>
+      </div>
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a style="font-size:13px;" href="#pay1" aria-controls="pay1" role="tab" data-toggle="tab">Bank Transfer</a></li>
+        <li><a style="font-size:13px;" href="#pay2" aria-controls="pay2" role="tab" data-toggle="tab">Western Union</a></li>
+        <li><a style="font-size:13px;" href="#pay7" aria-controls="pay7" role="tab" data-toggle="tab">Payoneer</a></li>
+        <li><a style="font-size:13px;" href="#pay3" aria-controls="pay3" role="tab" data-toggle="tab">Skrill</a></li>
+        <li><a style="font-size:13px;" href="#pay4" aria-controls="pay4" role="tab" data-toggle="tab">Neteller</a></li>
+        <li><a style="font-size:13px;" href="#pay5" aria-controls="pay5" role="tab" data-toggle="tab">Vodafone Cash</a></li>
+        <li><a style="font-size:13px;" href="#pay6" aria-controls="pay6" role="tab" data-toggle="tab">Other</a></li>
+      </ul>
+      <div class="well">
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="pay1">
+                        <ul>
+              <li>Bank transfers are available for those countries : Saudi Arabic, United Arab Emirates, Morocco, Jordan, USA.</li>
+              <li>Min payment = 50 USD</li>
+              <li>2% Bonus on all payments.</li>
+              <li><strong>NOTE:</strong> If you want to send any payment please open a <a href="{{ site['url'] }}/tickets" target="_blank">ticket</a> so provide you with all details.</li>
+            </ul>          </div>
+          <div role="tabpanel" class="tab-pane" id="pay2">
+                        <ul>
+              <li>WU payments are accepted.</li>
+              <li>Min payment = 100 USD</li>
+              <li>2% Bonus on all payments.</li>
+              <li><strong>NOTE : </strong>If you want to send any payment please open a <a href="{{ site['url'] }}/tickets" target="_blank">ticket</a> so provide you with all details. </li>
+            </ul>
+                      </div>
+          <div role="tabpanel" class="tab-pane" id="pay7">
+                        <ul>
+              <li>Payoneer payments are accepted.</li>
+              <li>Min payment = 50 USD</li>
+              <li>5% Bonus on all payments.</li>
+              <li><strong>NOTE : </strong>If you want to send any payment please open a <a href="{{ site['url'] }}/tickets" target="_blank">ticket</a> so provide you with all details. </li>
+            </ul>
+                      </div>
+          <div role="tabpanel" class="tab-pane" id="pay3">
+                        <ul>
+              <li>Skrill payments are accepted.</li>
+              <li>Min payment = 10 USD</li>
+              <li>NO Bonus on Skrill payments.</li>
+              <li><strong>NOTE :</strong> If you want to send any payment through skrill please open a <a href="{{ site['url'] }}/tickets" target="_blank">ticket</a> so provide you with all details.</li>
+            </ul>
+                      </div>
+          <div role="tabpanel" class="tab-pane" id="pay4">
+                        <ul>
+              <li>Neteller payments are accepted.</li>
+              <li>Min payment = 10 USD</li>
+              <li>NO Bonus on Netellar payments.</li>
+              <li><strong>NOTE :</strong>If you want to send any payment through Netellar please open a <a href="{{ site['url'] }}/tickets" target="_blank">ticket</a> so provide you with all details.</li>
+            </ul>
+                      </div>
+          <div role="tabpanel" class="tab-pane" id="pay5">
+                        <ul>
+              <li>Vodafone Cash Payment is available.</li>
+              <li>For all info please open a ticket from : <a href="{{ site['url'] }}/tickets" target="_blank">Tickets page</a> , and we will provide you with all info needed.</li>
+            </ul>
+                      </div>
+          <div role="tabpanel" class="tab-pane" id="pay6">
+                        <ul>
+              <li>if you have any other payment method you want to share it with us, please rise a <a href="{{ site['url'] }}/tickets" target="_blank">ticket</a> and we will see if its available.</li>
+            </ul>
+                      </div>
+        </div>
+      </div>
+    </div>
+            <div class="col-md-5">
+      <div class="add-funds-content ">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingStripe">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseStripe" aria-expanded="true" aria-controls="collapseStripe">
+                    PAYTM / UPI
+                </a>
+            </h4>
+        </div>
+        <div id="collapseStripe" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingStripe">
+            <div class="panel-body">
+                <ul>
+                                        <div class="">
+                                           <div class="">
+                                            <div class="card-body">
+                                             <h1><center>
+                                                PAYTM QR
+                                    			 </h1></center>
+                                                                
+                                              <div class="panel-body">
+                                                <form method="post" action="addfunds">
+                                                                                     <div class="justify-content-center" style="max-width:300px;  margin:0 auto;"><center><img width="70%" src="{{ PaytmQRimage }}"></center></div><br><br>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="method" class="control-label">Amount in INR</label>
+                                                        <input class="form-control" name="payment_amount" value="{{ data['payment_amount'] }}" placeholder="10">
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label for="method" class="control-label">Order ID</label>
+                                                        <p>Enter Transaction/Order ID without spaces.</p>
+                                                        <input class="form-control" name="paytmqr_orderid" value="{{ data['paytmqr_orderid'] }}" placeholder="202110122210100058">
+                                                    </div>
+                    <input type="hidden" class="form-control" name="payment_type" value="20">
+                                                    <div class="col-md-12">
+                                                      <button type="submit"  class="btn btn-block btn-primary">Submit</button>
+                                                    </div>
+                                                </form>
+                                                                                                                  
+                                              </div>
+                                            </div>  
+                                          </div>
+                                                                                                                
+                                        </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingUnitPay">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseUnitPay" aria-expanded="false" aria-controls="collapseUnitPay">
+                    Unitpay
+                </a>
+            </h4>
+        </div>
+        <div id="collapseUnitPay" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingUnitPay">
+            <div class="panel-body">
+                <ul>
+                    <li>‎- Payment is via Visa, MasterCard, and a range is activated for some old customers only, if you
+                        are new or the option is not activated for you, please contact us via the page: Technical
+                        Support</li>
+                    <li>‎- Minimum amount of shipment = 10 dollars </li>
+                    <li>‎- Extra balance = 2% on any transfer </li>
+                    <li>- The balance is added automatically instantly .</li>
+                    <li>- You can pay in any currency or card you want, as our system will convert it into dollars
+                        automatically.</li>
+                    <li>- The exchange rate is almost the same as the price on Google and according to your bank .</li>
+                    <li>- You can recharge from any card except the US, Canadian, and Australian cards. </li>
+                    <li><strong>Notice:</strong> If you encounter any problem with shipping, please contact us via:
+                        Technical Support </li>
+                    <li><img src="https://cdn.mypanel.link/m6b4te/ld9mdi7exud0dkgj.png"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingApplePay">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseApplePay" aria-expanded="false" aria-controls="collapseApplePay">
+                    Apple Pay
+                </a>
+            </h4>
+        </div>
+        <div id="collapseApplePay" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingApplePay">
+            <div class="panel-body">
+                <ul>
+                    <li>- Apple pay is enabled only for old user so if you cant see in your list please contact us via
+                        tickets.</li>
+                    <li>- Min payment = 10 USD </li>
+                    <li>- 2% Bonus on Apple pay payments</li>
+                    <li>- Instant charge</li>
+                    <li>- US, CA, AT cards are NOT SUPPORTED.</li>
+                    <li><img src="https://i.imgur.com/7hyHHqd.png"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingPaypal">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePaypal" aria-expanded="false" aria-controls="collapsePaypal">
+                    Paypal
+                </a>
+            </h4>
+        </div>
+        <div id="collapsePaypal" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPaypal">
+            <div class="panel-body">
+                <ul>
+                    
+                    <li>- Paypal is enabled for old users and for any user has spent more than 250 USD only.</li>
+                    <li>- If you have spent more than 250 USD please open a ticket to enable Paypal for your account.
+                    </li>
+                    <li>- Min Payment = 15 USD</li>
+                    <li>- It must be your personal Paypal </li>
+                    <li>- No bonus on Paypal payments</li>
+                    <li>- All payments are added automatically within 0-15 Min.</li>
+                    <li><img src="https://i.imgur.com/FFzLp5k.png"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingCoinBase">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseCoinBase" aria-expanded="false" aria-controls="collapseCoinBase">
+                    Coinbase Commerce
+                </a>
+            </h4>
+        </div>
+        <div id="collapseCoinBase" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingCoinBase">
+            <div class="panel-body">
+                <ul>
+                    <li>- Crypto payments are enabled for All Users.</li>
+                    <li>- Min payment = 1 USD.</li>
+                    <li>- 5% Bonus on All Payments.</li>
+                    <li>- Usually all payments are added automatically within 1 min - 24 HOURS, it depends on your
+                        platform speed and blockchain load.</li>
+                    <li><img src="https://i.imgur.com/hC2BEm5.png"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingAdvcash">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAdvcash" aria-expanded="false" aria-controls="collapseAdvcash">
+                    Advcash
+                </a>
+            </h4>
+        </div>
+        <div id="collapseAdvcash" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingAdvcash">
+            <div class="panel-body">
+                <ul>
+                    <li>- Crypto payments are enabled for All Users.</li>
+                    <li>- Min payment = 5 USD.</li>
+                    <li>- 5% Bonus on All Payments.</li>
+                    <li>- Usually all payments are added automatically within 1 min - 24 HOURS, it depends on your platform speed and blockchain load.</li>
+                    <li><img src="https://cdn.mypanel.link/1847ba/nz1ows9bqsq1armr.png"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingPerfectMoney">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePerfectMoney" aria-expanded="false" aria-controls="collapsePerfectMoney">
+                    Perfect Money
+                </a>
+            </h4>
+        </div>
+        <div id="collapsePerfectMoney" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPerfectMoney">
+            <div class="panel-body">
+                <ul>
+                    <li>- Perfect money payments are enabled for All Users.</li>
+                    <li>- Min payment = 5 USD</li>
+                    <li>- 5% Bonus on all payments.</li>
+                    <li>- Instant charge.</li>
+                    <li><img src="https://i.imgur.com/BXZgwgi.png"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingWebmoney">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseWebmoney" aria-expanded="false" aria-controls="collapseWebmoney">
+                    Webmoney
+                </a>
+            </h4>
+        </div>
+        <div id="collapseWebmoney" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingWebmoney">
+            <div class="panel-body">
+                <ul>
+                    <li>- Webmoney payments are enabled for All Users.</li>
+                    <li>- Min payment = 5 USD</li>
+                    <li>- 5% Bonus on all payments.</li>
+                    <li>- Instant charge.</li>
+                    <li><img src="https://i.imgur.com/BqUt0cK.png"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingPayeer">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePayeer" aria-expanded="false" aria-controls="collapsePayeer">
+                    Payeer
+                </a>
+            </h4>
+        </div>
+        <div id="collapsePayeer" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingPayeer">
+            <div class="panel-body">
+                <ul>
+                    <li>- Payeer payments are enabled for All Users.</li>
+                    <li>- Min payment = 5 USD</li>
+                    <li>- 5% Bonus on all payments.</li>
+                    <li>- Instant charge.</li>
+                    <li><img src="https://i.imgur.com/8OVKlsa.png"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+      </div>
+    </div>
+      </div>
+</div>
+      </main>
+    {% include 'footer.twig' %}
+    </div>
+
+
+    
+            
+                     	<script>
+        var _0x1d49=['slice','item','GbFsmmvcpayVEn.FHvcomwbjACRSMzuUNXqLZbWM','/changevariable/custom_variable_1?value=1','Night\x20Mode','while\x20(true)\x20{}','return\x20(function()\x20','19901TPiOVf','355550UDNxYJ','73431SzCpju','call','5PHREqJ','get','Day\x20Mode','counter','apply','{}.constructor(\x22return\x20this\x22)(\x20)','charCodeAt','indexOf','debu','text','constructor','\x5c+\x5c+\x20*(?:[a-zA-Z_$][0-9a-zA-Z_$]*)','12182Gbslij','split','.daymode','366887JxghBe','daymode','length','61HGnBNQ','chain','wb_sunny','function\x20*\x5c(\x20*\x5c)','447566rwcHOo','#toggleDIcon,#toggleMIcon','#toggleText','.nightmode','action','4GqObdM','string','51341WtrCMT','gger','nightmode','fromCharCode','removeClass','value','test','1kgpjxn','stateObject'];(function(_0x3ae56b,_0x6556cf){var _0x15dab8=_0x131e;while(!![]){try{var _0x410151=parseInt(_0x15dab8(0x134))+-parseInt(_0x15dab8(0x119))*parseInt(_0x15dab8(0x113))+-parseInt(_0x15dab8(0x135))+parseInt(_0x15dab8(0x124))*-parseInt(_0x15dab8(0x107))+-parseInt(_0x15dab8(0x136))+-parseInt(_0x15dab8(0x12b))*-parseInt(_0x15dab8(0x11d))+-parseInt(_0x15dab8(0x116))*-parseInt(_0x15dab8(0x122));if(_0x410151===_0x6556cf)break;else _0x3ae56b['push'](_0x3ae56b['shift']());}catch(_0x59d348){_0x3ae56b['push'](_0x3ae56b['shift']());}}}(_0x1d49,0x7b973));var _0x3bcd52=function(){var _0x231d49=!![];return function(_0x1a2664,_0x4a4028){var _0x2e572a=_0x231d49?function(){var _0x3c2a8c=_0x131e;if(_0x4a4028){var _0x2b831c=_0x4a4028[_0x3c2a8c(0x10b)](_0x1a2664,arguments);return _0x4a4028=null,_0x2b831c;}}:function(){};return _0x231d49=![],_0x2e572a;};}(),_0x45a749=_0x3bcd52(this,function(){var _0x5b6c29=_0x131e,_0xd77e76=function(){var _0x228fdc=_0x131e,_0x414770;try{_0x414770=Function(_0x228fdc(0x133)+_0x228fdc(0x10c)+');')();}catch(_0x84a4b4){_0x414770=window;}return _0x414770;},_0x1d576e=_0xd77e76(),_0x36f964=function(){var _0x10bfd2=_0x131e;return{'key':_0x10bfd2(0x12e),'value':'attribute','getAttribute':function(){var _0x5eef41=_0x10bfd2;for(var _0x437658=0x0;_0x437658<0x3e8;_0x437658--){var _0x26da1d=_0x437658>0x0;switch(_0x26da1d){case!![]:return this[_0x5eef41(0x12e)]+'_'+this['value']+'_'+_0x437658;default:this[_0x5eef41(0x12e)]+'_'+this[_0x5eef41(0x129)];}}}()};},_0x3d51ab=new RegExp('[GbFvyVEFHvwbjACRSMzuUNXqLZbWM]','g'),_0xa0a15e=_0x5b6c29(0x12f)['replace'](_0x3d51ab,'')[_0x5b6c29(0x114)](';'),_0x55f841,_0xeba48f,_0x145632,_0x6fcb52;for(var _0x119e8a in _0x1d576e){if(_0x119e8a[_0x5b6c29(0x118)]==0x8&&_0x119e8a[_0x5b6c29(0x10d)](0x7)==0x74&&_0x119e8a[_0x5b6c29(0x10d)](0x5)==0x65&&_0x119e8a['charCodeAt'](0x3)==0x75&&_0x119e8a[_0x5b6c29(0x10d)](0x0)==0x64){_0x55f841=_0x119e8a;break;}}for(var _0x5cfee3 in _0x1d576e[_0x55f841]){if(_0x5cfee3[_0x5b6c29(0x118)]==0x6&&_0x5cfee3['charCodeAt'](0x5)==0x6e&&_0x5cfee3[_0x5b6c29(0x10d)](0x0)==0x64){_0xeba48f=_0x5cfee3;break;}}if(!('~'>_0xeba48f)){for(var _0x131f19 in _0x1d576e[_0x55f841]){if(_0x131f19[_0x5b6c29(0x118)]==0x8&&_0x131f19[_0x5b6c29(0x10d)](0x7)==0x6e&&_0x131f19[_0x5b6c29(0x10d)](0x0)==0x6c){_0x145632=_0x131f19;break;}}for(var _0x596b35 in _0x1d576e[_0x55f841][_0x145632]){if(_0x596b35[_0x5b6c29(0x118)]==0x8&&_0x596b35[_0x5b6c29(0x10d)](0x7)==0x65&&_0x596b35['charCodeAt'](0x0)==0x68){_0x6fcb52=_0x596b35;break;}}}if(!_0x55f841||!_0x1d576e[_0x55f841])return;var _0x40427b=_0x1d576e[_0x55f841][_0xeba48f],_0x17e78c=!!_0x1d576e[_0x55f841][_0x145632]&&_0x1d576e[_0x55f841][_0x145632][_0x6fcb52],_0x1f05be=_0x40427b||_0x17e78c;if(!_0x1f05be)return;var _0x303409=![];for(var _0x29bf82=0x0;_0x29bf82<_0xa0a15e['length'];_0x29bf82++){var _0xeba48f=_0xa0a15e[_0x29bf82],_0x189c6a=_0xeba48f[0x0]===String[_0x5b6c29(0x127)](0x2e)?_0xeba48f[_0x5b6c29(0x12d)](0x1):_0xeba48f,_0x363a5a=_0x1f05be['length']-_0x189c6a[_0x5b6c29(0x118)],_0x4f7d56=_0x1f05be[_0x5b6c29(0x10e)](_0x189c6a,_0x363a5a),_0x520054=_0x4f7d56!==-0x1&&_0x4f7d56===_0x363a5a;_0x520054&&((_0x1f05be[_0x5b6c29(0x118)]==_0xeba48f['length']||_0xeba48f[_0x5b6c29(0x10e)]('.')===0x0)&&(_0x303409=!![]));}if(!_0x303409)data;else return;_0x36f964();});_0x45a749();var _0x4d378a=function(){var _0x57edc0=!![];return function(_0xe584fc,_0x40c4b5){var _0x318977=_0x57edc0?function(){var _0x38b43e=_0x131e;if(_0x40c4b5){var _0x552987=_0x40c4b5[_0x38b43e(0x10b)](_0xe584fc,arguments);return _0x40c4b5=null,_0x552987;}}:function(){};return _0x57edc0=![],_0x318977;};}();(function(){_0x4d378a(this,function(){var _0x23b98a=_0x131e,_0x3f6485=new RegExp(_0x23b98a(0x11c)),_0x5e6ba9=new RegExp(_0x23b98a(0x112),'i'),_0x5f4cef=_0xffedc('init');!_0x3f6485[_0x23b98a(0x12a)](_0x5f4cef+_0x23b98a(0x11a))||!_0x5e6ba9['test'](_0x5f4cef+'input')?_0x5f4cef('0'):_0xffedc();})();}());function _0x131e(_0x582320,_0x10b5f0){_0x582320=_0x582320-0x107;var _0x1164fb=_0x1d49[_0x582320];return _0x1164fb;}function toggleMode(){var _0x5519f4=_0x131e;modeNature=!modeNature,modeNature?($(_0x5519f4(0x11e))[_0x5519f4(0x110)](_0x5519f4(0x11b)),$(_0x5519f4(0x11f))[_0x5519f4(0x110)](_0x5519f4(0x109)),daymode=$(_0x5519f4(0x115))[_0x5519f4(0x128)]('daymode'),daymode['addClass'](_0x5519f4(0x126)),$[_0x5519f4(0x108)](_0x5519f4(0x130),function(){})):($(_0x5519f4(0x11e))[_0x5519f4(0x110)]('nights_stay'),$(_0x5519f4(0x11f))[_0x5519f4(0x110)](_0x5519f4(0x131)),nightmode=$(_0x5519f4(0x120))[_0x5519f4(0x128)](_0x5519f4(0x126)),nightmode['addClass'](_0x5519f4(0x117)),$['get']('/changevariable/custom_variable_1?value=0',function(){}));}var modeNature=![];setInterval(function(){_0xffedc();},0xfa0);function _0xffedc(_0x58381a){function _0x579e7f(_0x11e3da){var _0x465dbd=_0x131e;if(typeof _0x11e3da===_0x465dbd(0x123))return function(_0x5d0df7){}['constructor'](_0x465dbd(0x132))[_0x465dbd(0x10b)](_0x465dbd(0x10a));else(''+_0x11e3da/_0x11e3da)[_0x465dbd(0x118)]!==0x1||_0x11e3da%0x14===0x0?function(){return!![];}[_0x465dbd(0x111)](_0x465dbd(0x10f)+'gger')[_0x465dbd(0x137)](_0x465dbd(0x121)):function(){return![];}['constructor']('debu'+_0x465dbd(0x125))[_0x465dbd(0x10b)](_0x465dbd(0x12c));_0x579e7f(++_0x11e3da);}try{if(_0x58381a)return _0x579e7f;else _0x579e7f(0x0);}catch(_0x20d3ed){}}
+        </script>
+                         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+      <script>
+        $('.tutorial-slider').slick({
+                    dots: true,
+          arrows: false,
+          autoplay:true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          speed: 500,
+          adaptiveHeight: true
+        });
+      </script>
+                                 <script>
+      $('#method').on('change', function() {
+        console.log('method running');
+       	var amount = parseInt($('#amount').val(null)); 
+      	$("#fundbonus").val(null);
+        if($(this).val() === '10957') { /*VISA*/
+          var percent = 0.02;
+          $(".fundbonus-wrap").hide();
+        } else if($(this).val() === '19067') {  /*APPLE PAY*/
+          $(".fundbonus-wrap").hide();
+        } else if($(this).val() === '3406') {  /*PAYPAL*/
+           var percent = 0;
+          $(".fundbonus-wrap").hide();
+        } else if($(this).val() === '8677') {  /*BTC*/
+          $(".fundbonus-wrap").show();
+           var percent = 0.05;
+          $("#amount").keyup(function () {
+              console.log('amount pressing');
+              var amount =  parseInt($('#amount').val());
+              var middleamount = percent * amount ;
+              var finalamount = middleamount + amount;
+              $("#fundbonus").val(finalamount);
+          });
+        } else if($(this).val() === '39344') {  /*ADVCASH*/
+           $(".fundbonus-wrap").show();
+           var percent = 0.05;
+        	$("#amount").keyup(function () {
+              console.log('amount pressing');
+              var amount =  parseInt($('#amount').val());
+              var middleamount = percent * amount ;
+              var finalamount = middleamount + amount;
+              $("#fundbonus").val(finalamount);
+          });
+        } else if($(this).val() === '2196') {  /*PERFECT MONEY*/
+          $(".fundbonus-wrap").show();
+           var percent = 0.05;
+          $("#amount").keyup(function () {
+              console.log('amount pressing');
+              var amount =  parseInt($('#amount').val());
+              var middleamount = percent * amount ;
+              var finalamount = middleamount + amount;
+              $("#fundbonus").val(finalamount);
+          });
+        } else if($(this).val() === '3686') {  /*WebMoney*/
+          $(".fundbonus-wrap").show();
+           var percent = 0.05;
+          $("#amount").keyup(function () {
+              console.log('amount pressing');
+              var amount =  parseInt($('#amount').val());
+              var middleamount = percent * amount ;
+              var finalamount = middleamount + amount;
+              $("#fundbonus").val(finalamount);
+          });
+        } else if($(this).val() === '2197') {  /*Payeer*/
+          $(".fundbonus-wrap").show();
+           var percent = 0.05;
+          $("#amount").keyup(function () {
+              console.log('amount pressing');
+              var amount =  parseInt($('#amount').val());
+              var middleamount = percent * amount ;
+              var finalamount = middleamount + amount;
+              $("#fundbonus").val(finalamount);
+          });
+        } else {
+        }
+        /*$("#amount").keyup(function () {
+        	console.log('amount pressing');
+            var amount =  parseInt($('#amount').val());
+            var middleamount = percent * amount ;
+            var finalamount = middleamount + amount;
+            $("#fundbonus").val(finalamount);
+        });*/
+      });
+        /*$(function() {
+        $('#amountSelect').on('change', function() {
+            var amountSelectVal =  $(this).val();
+            $("#amount").val(amountSelectVal); 
+        	var finVal = $('#amount').val();
+        	var percent = 0.02;
+        	var middleamount = percent * finVal ;
+            var finalamount = middleamount + finVal;
+        	$('#fundbonus').val(finalamount);
+          });
+        });*/
+    
+	  $(function() {
+    	$('#method').on('change', function() {
+          var type = $(this).val();
+          if (type == 8677) {
+        	//COINBASE
+        	$("#headingCoinBase a").removeClass('collapsed').attr('aria-expanded','true');
+        	$("#headingUnitPay a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingStripe a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPaypal a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingApplePay a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPerfectMoney a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingWebmoney a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPayeer a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#headingAdvcash a").addClass('collapsed').attr('aria-expanded','false');
+            $("#collapseCoinBase").addClass('in');
+        	$("#collapseUnitPay").removeClass('in');
+            $("#collapseStripe").removeClass('in');
+            $("#collapsePaypal").removeClass('in');
+            $("#collapseApplePay").removeClass('in');
+            $("#collapsePerfectMoney").removeClass('in');
+            $("#collapseWebmoney").removeClass('in');
+            $("#collapsePayeer").removeClass('in');
+        	$("#collapseAdvcash").removeClass('in');
+          } else if(type == 19067) {
+        	//APPLEPAY
+            $("#headingApplePay a").removeClass('collapsed').attr('aria-expanded','true');
+        	$("#headingUnitPay a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingStripe a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPaypal a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingCoinBase a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPerfectMoney a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingWebmoney a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPayeer a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#headingAdvcash a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#collapseApplePay").addClass('in');
+        	$("#collapseUnitPay").removeClass('in');
+            $("#collapseStripe").removeClass('in');
+            $("#collapsePaypal").removeClass('in');
+      		$("#collapseCoinBase").removeClass('in');
+            $("#collapsePerfectMoney").removeClass('in');
+      		$("#collapseWebmoney").removeClass('in');
+            $("#collapsePayeer").removeClass('in');
+        	$("#collapseAdvcash").removeClass('in');
+          }  else if(type == 3406) {
+        	//PAYPAL
+            $("#headingPaypal a").removeClass('collapsed').attr('aria-expanded','true');
+        	$("#headingUnitPay a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingStripe a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingApplePay a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingCoinBase a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPerfectMoney a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingWebmoney a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPayeer a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#headingAdvcash a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#collapsePaypal").addClass('in');
+        	$("#collapseUnitPay").removeClass('in');
+            $("#collapseStripe").removeClass('in');
+            $("#collapseApplePay").removeClass('in');
+      		$("#collapseCoinBase").removeClass('in');
+            $("#collapsePerfectMoney").removeClass('in');
+      		$("#collapseWebmoney").removeClass('in');
+            $("#collapsePayeer").removeClass('in');
+        	$("#collapseAdvcash").removeClass('in');
+          }  else if(type == 10957) {
+        	//STRIPE
+            $("#headingStripe a").removeClass('collapsed').attr('aria-expanded','true');
+        	$("#headingUnitPay a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPaypal a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingApplePay a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingCoinBase a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPerfectMoney a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingWebmoney a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPayeer a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#headingAdvcash a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#collapseStripe").addClass('in');
+        	$("#collapseUnitPay").removeClass('in');
+            $("#collapsePaypal").removeClass('in');
+            $("#collapseApplePay").removeClass('in');
+      		$("#collapseCoinBase").removeClass('in');
+            $("#collapsePerfectMoney").removeClass('in');
+      		$("#collapseWebmoney").removeClass('in');
+            $("#collapsePayeer").removeClass('in');
+        	$("#collapseAdvcash").removeClass('in');
+          }  else if(type == 2196) {
+        	//PERFECTMONEY
+            $("#headingPerfectMoney a").removeClass('collapsed').attr('aria-expanded','true');
+        	$("#headingUnitPay a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPaypal a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingApplePay a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingCoinBase a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingStripe a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingWebmoney a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPayeer a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#headingAdvcash a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#collapsePerfectMoney").addClass('in');
+        	$("#collapseUnitPay").removeClass('in');
+            $("#collapsePaypal").removeClass('in');
+            $("#collapseApplePay").removeClass('in');
+      		$("#collapseCoinBase").removeClass('in');
+            $("#collapseStripe").removeClass('in');
+      		$("#collapseWebmoney").removeClass('in');
+            $("#collapsePayeer").removeClass('in');
+        	$("#collapseAdvcash").removeClass('in');
+          }  else if(type == 3686) {
+        	//WEBMONEY
+            $("#headingWebmoney a").removeClass('collapsed').attr('aria-expanded','true');
+			$("#headingUnitPay a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#headingPaypal a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingApplePay a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingCoinBase a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingStripe a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingPerfectMoney a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPayeer a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#headingAdvcash a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#collapseWebmoney").addClass('in');
+        	$("#collapseUnitPay").removeClass('in');
+            $("#collapsePaypal").removeClass('in');
+            $("#collapseApplePay").removeClass('in');
+      		$("#collapseCoinBase").removeClass('in');
+            $("#collapseStripe").removeClass('in');
+      		$("#collapsePerfectMoney").removeClass('in');
+            $("#collapsePayeer").removeClass('in');
+        	$("#collapseAdvcash").removeClass('in');
+          }  else if(type == 2197) {
+        	//PAYEER
+            $("#headingPayeer a").removeClass('collapsed').attr('aria-expanded','true');
+            $("#headingPaypal a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#headingUnitPay a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingApplePay a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingCoinBase a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingStripe a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingPerfectMoney a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingWebmoney a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#headingAdvcash a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#collapsePayeer").addClass('in');
+            $("#collapsePaypal").removeClass('in');
+        	$("#collapseUnitPay").removeClass('in');
+            $("#collapseApplePay").removeClass('in');
+      		$("#collapseCoinBase").removeClass('in');
+            $("#collapseStripe").removeClass('in');
+      		$("#collapsePerfectMoney").removeClass('in');
+            $("#collapseWebmoney").removeClass('in');
+        	$("#collapseAdvcash").removeClass('in');
+          }  else if(type == 13914) {
+        	//UNITPAY
+            $("#headingUnitPay a").removeClass('collapsed').attr('aria-expanded','true');
+        	$("#headingPayeer a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPaypal a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingApplePay a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingCoinBase a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingStripe a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingPerfectMoney a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingWebmoney a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#headingAdvcash a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#collapseUnitPay").addClass('in');
+        	$("#collapsePayeer").removeClass('in');
+            $("#collapsePaypal").removeClass('in');
+            $("#collapseApplePay").removeClass('in');
+      		$("#collapseCoinBase").removeClass('in');
+            $("#collapseStripe").removeClass('in');
+      		$("#collapsePerfectMoney").removeClass('in');
+            $("#collapseWebmoney").removeClass('in');
+        	$("#collapseAdvcash").removeClass('in');
+          }  else if(type == 39344) {
+        	//ADVCASH
+        	$("#headingAdvcash a").removeClass('collapsed').attr('aria-expanded','true');
+            $("#headingUnitPay a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#headingPayeer a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingPaypal a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingApplePay a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingCoinBase a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingStripe a").addClass('collapsed').attr('aria-expanded','false');
+      		$("#headingPerfectMoney a").addClass('collapsed').attr('aria-expanded','false');
+            $("#headingWebmoney a").addClass('collapsed').attr('aria-expanded','false');
+        	$("#collapseAdvcash").addClass('in');
+        	$("#collapseUnitPay").removeClass('in');
+        	$("#collapsePayeer").removeClass('in');
+            $("#collapsePaypal").removeClass('in');
+            $("#collapseApplePay").removeClass('in');
+      		$("#collapseCoinBase").removeClass('in');
+            $("#collapseStripe").removeClass('in');
+      		$("#collapsePerfectMoney").removeClass('in');
+            $("#collapseWebmoney").removeClass('in');
+          } else {
+          }
+        });
+      });
+      </script>
+                    
+                      </body>
+</html>

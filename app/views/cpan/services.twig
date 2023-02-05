@@ -1,0 +1,367 @@
+{% include 'header.twig' %}
+
+
+
+<br><style>
+  .ico-ig i {
+  background: linear-gradient(200deg, #d047d1, red, #ff0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #FFF;
+  }
+  .ico-dscd i{
+  color: #7289da;
+  }
+  .ico-fb i {
+   color: #207eff;
+  }
+  .ico-yt i {
+  color: #ff0042;
+  }
+  .ico-sc i {
+  color: #fffc00;
+  }
+  .ico-link i {
+  color: #0077b5;
+  }
+  .ico-tw i {
+  color: #1da1f2;
+  }
+  .ico-tele i {
+  color: #2b9fd2;
+  }
+  .ico-snc i {
+  background: linear-gradient(120deg, #ff8800, #ff3300);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  }
+  .ico-sp i {
+  color: #62ffa2;
+  }
+  .ico-twc i {
+  color: #4b367c;
+  font-size: 14px;
+  }
+  .ico-pt i {
+  color: #ff5858;
+  }
+  .ico-tic i {
+  color: #000000;
+  }
+  .ico-web i {
+  color: #1a1a1a;
+  }
+  .ico-dgr i {
+  color: #ccc;
+  }
+  .ico-kamp i {
+  color: #ff0000;
+  }
+  .ico-prs i {
+  color: #e24d3a;
+  }
+  .ico-link i {
+  color: #0077b0;
+  }
+  .ico-tmb i {
+  color: #1c3764;
+  }
+  .ico-dm i {
+  color: #00c9eb;
+  }  
+  .ico-vmo i {
+  color: #00a8e8;
+  } 
+  .ico-app i {
+  color: #313131;
+  }
+  .ico-whap i {
+  color: #0dc143;
+  }
+</style>
+<div class="container">
+  <div class="row option-row">
+    <div class="col-sm-4">
+      <div class="btn-group filter-btn">
+        <button type="button" class="btn btn-default dropdown-toggle srvtgl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fal fa-filter"></i><span> Search Filter</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a href="javascript:void(0);" onclick="filterService('All')">All</a></li>
+                               {% for category in serviceCategory %}
+                             
+                              <li><a href="javascript:void(0);" onclick="filterService('{{ category["category_name"] }}')">{{ category["category_name"] }}</a></li>
+                              {% endfor %}   
+                  </ul>
+      </div>
+    </div>
+    <div class="col-sm-4"><p class="breadcrumbs">You are currently on: <strong>Services</strong></p></div>
+      </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="input-group search-bar">
+        <input id="search" type="text" class="form-control" placeholder="Search Services">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><i class="far fa-search"></i></button>
+        </span>
+      </div>
+      <div class="table-responsive">
+        <table class="table custom-table mob-table results ">
+          <thead>
+            <tr>
+                            <th>ID</th>
+              <th class="width-service-name">Service</th>
+              <th class="nowrap cont-width">Rate/1000</th>
+              <th class="nowrap">Min order</th>
+              <th class="nowrap">Max order</th>
+                            <th class="nowrap">Average time
+                <span class="fa fa-exclamation-circle" data-toggle="tooltip" data-placement="top" title="The average time is based on 10 latest completed orders per 1000 quantity."></span>
+              </th>
+                                          <th>Description</th>
+                          </tr>
+          </thead>
+          <tbody>
+              {% for category in serviceCategory %}
+                                    <tr class="cate-row" data-category="{{ category["category_name"] }}">
+              <td colspan="8" class="mk-icons">{{ category["category_name"] }}</td>
+            </tr>
+            {% for service in category['services'] %}
+                                    <tr class="table-cont serv-row" data-category="{{ category["category_name"] }}">
+                            <td data-head="ID">{{ service["service_id"] }}</td>
+              <td data-head="Service" class="service-name mk-icons">{{ service["service_name"] }}</td>
+              <td data-head="Rate/1000" class="cont-width rate-badge">{{ service["service_price"] }}</td>
+              <td data-head="Min order">{{ service["service_min"] }}</td>
+              <td data-head="Max order">{{ service["service_max"] }}</td>
+                            <td data-head="Average time" class="nowrap">Not enough data</td>
+                                          <td data-head="Description"><a class="btn-primary table-btn btn-sm btn-serv" href="javascript:void(0);" data-id="{{ service["service_id"] }}" data-name="{{ service["service_name"] }}" data-average="Not enough data" data-details="{{ service["service_description"] }}">View Details</a></td>
+                          </tr>
+                          
+              {% endfor %}
+              {% endfor %}
+              
+</tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+ 
+<!-- SERVICE MODAL -->
+<div class="modal fade" id="servModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title">Service Details</h4>
+      </div>
+      <div class="modal-body">
+        <div class="servPicWrap">
+        	<img src="https://cdn.mypanel.link/m6b4te/q0yk4md5cij3ypou.png" class="servPic" />
+        </div>
+        <h2 class="servName" id="service_name">Instagram Followers</h2>
+        <div class="servLink">
+        	<a href="https://anon.ws/?null" id="example_link"></a>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 text-left">
+            <h6>AVERAGE TIME</h6>
+            <p id="average_time">Not enough data</p>
+          </div>
+          <div class="col-sm-4 text-center">
+            <h6>SPEED</h6>
+            <p id="speed"></p>
+          </div>
+          <div class="col-sm-4 text-right">
+            <h6>START TIME</h6>
+            <p id="start_time"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 text-left">
+            <h6>GUARANTEED</h6>
+            <p id="guaranteed"></p>
+          </div>
+          <div class="col-sm-6 text-right">
+            <h6>QUALITY</h6>
+            <p id="quality">REAL</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 text-center">
+            <h6>DESCRIPTION</h6>
+            <p id="description">Start Time : 0/6 Hours<br>Estimated Delivery Time: 2 Days.<br>Guarantee: The delivery is 365 days guaranteed from order date.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>              
+            
+        <script>
+      function searchServices() {
+        var searchTerm = $("#search").val();
+        var listItem = $('.results tbody').children('tr');
+        var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+        $.extend($.expr[':'], {'containsi': function(elem, i, match, array) {
+            return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+          }
+        });
+        $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+          $(this).addClass('hide');
+        });
+        $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+          $(this).removeClass('hide');
+        });
+        $("tr.separator:first-child, tr.separator:last-child").each(function(e) {
+          $(this).removeClass('hide');
+        });
+      }
+
+      function filterService(category) {
+        if (category == 'All')
+          $('tbody tr.hide').removeClass('hide');
+        else if (category == 'Fav') {
+          $('.results tbody tr.serv-row').addClass('hide');
+          $('.fas.fa-star').each(function () {
+            $(this).closest('tr').removeClass('hide');
+          });
+        } else {
+          $('tbody tr').addClass('hide');
+          $('tbody tr[data-category="' + category + '"]').removeClass('hide');
+        }
+        removeEmptyCategory();
+      }
+
+      function removeEmptyCategory() {
+        $('.cate-row').each(function () {
+            var next = $(this).next();
+            var services = $(this).nextUntil('.cate-row');
+            var empty = true;
+            services.each(function() {
+              if (!$(this).hasClass('hide')) empty = false;
+            });
+            if (empty) $(this).addClass('hide');
+        })
+      }
+      
+      $(function () { 
+        $("#search").keyup(function () {
+          searchServices();
+        });
+        $('.btn-serv').on('click', function() {
+        const servId = $(this).data('id');
+        const servName = $(this).data('name');
+        const servDetail = $(this).data('details');
+        const average_time = $(this).data('average');
+
+        $('#service_name').text(servName);
+        $('#average_time').text(average_time);
+        $('#description').html(decodeURIComponent(servDetail));
+
+        $('#example_link').text("Loading ...");
+        $('#guaranteed').text("Loading ...");
+      	$('#quality').text("Loading ...");
+        $('#speed').text("Loading ...");
+        $('#start_time').text("Loading ...");
+
+        $('#servModal').modal();
+
+      $.get("https://appsmmcpan.com/anaconda/api/service/" + servId, function(response) {
+          if (response.status) {
+            $('#example_link').text(response.data.example_link);
+            $('#example_link').attr('href', "https://anon.ws/?" + response.data.example_link);
+            $('#guaranteed').text(response.data.guranteed);
+      		$('#quality').text(response.data.quality);
+            $('#speed').text(response.data.speed);
+            $('#start_time').text(response.data.start_time);
+          } else {
+            $('#example_link').text("N/A");
+            $('#example_link').attr('href', "https://anon.ws/?");
+            $('#guaranteed').text("N/A");
+      		$('#quality').text("N/A");
+            $('#speed').text("N/A");
+            $('#start_time').text("N/A");
+          }
+        });
+      }); 
+      });
+      function ikon(opt) {
+        var ikon = "";
+        var yten = "Youtube";
+      	var yten2 = "YouTube";
+        var ytar = "يوتيوب";
+        var ytar2 = "يويتوب";
+        var fben = "Facebook";
+        var fbar = "فيسبوك";
+        var fbar2 = "فيس بوك";
+        var ggen = "Google";
+        var ggar = "جوجل";
+        var lien = "LinkedIn";
+        var liar = "لينكد ان";
+        var telen = "Telegram";
+        var telar = "تيليجرام";
+        var sncen = "SoundCloud";
+        var sncar = "ساوند كلاود";
+      	var dcen = "Discord";
+      	var dcar = "ديسكورد";
+        if (opt.indexOf("Instagram") >= 0 || opt.indexOf("instagram") >= 0 || opt.indexOf("انستقرام") >= 0) {
+            ikon = "<span class=\"ico-ig\"><i class=\"fab fa-instagram\"></i></span>";
+        } else if (opt.indexOf("IGTV") >= 0 || opt.indexOf("IG") >= 0) {
+            ikon = "<span class=\"ico-ig\"><i class=\"fab fa-instagram\"></i></span>"; 
+        } else if (opt.indexOf(fben) >= 0 || opt.indexOf(fbar) >= 0 || opt.indexOf(fbar2) >= 0) {
+            ikon = "<span class=\"ico-fb\"><i class=\"fab fa-facebook-square\"></i></span>";
+        } else if (opt.indexOf(yten) >= 0 || opt.indexOf(yten2) >= 0 || opt.indexOf(ytar) >= 0 || opt.indexOf(ytar2) >= 0) {
+            ikon = "<span class=\"ico-yt\"><i class=\"fab fa-youtube\"></i></span>";
+        }else if (opt.indexOf(dcen) >= 0 || opt.indexOf(dcar) >= 0 ) {
+            ikon = "<span class=\"ico-dscd\"><i class=\"fab fa-discord\"></i></span>";
+        }else if (opt.indexOf("Twitter") >= 0 || opt.indexOf("تويتر") >= 0) {
+            ikon = "<span class=\"ico-tw\"><i class=\"fab fa-twitter\"></i></span>";
+        } else if (opt.indexOf(ggen) >= 0 || opt.indexOf(ggar) >= 0) {
+            ikon = "<span class=\"ico-gp\"><i class=\"fab fa-google-plus\"></i></span>";
+        } else if (opt.indexOf("Soundcloud") >= 0) {
+            ikon = "<span class=\"ico-sc\"><i class=\"fab fa-soundcloud\"></i></span>";
+        } else if (opt.indexOf("Spotify") >= 0) {
+            ikon = "<span class=\"ico-sp\"><i class=\"fab fa-spotify\"></i></span>";
+        } else if (opt.indexOf(lien) >= 0 || opt.indexOf(liar) >= 0) {
+            ikon = "<span class=\"ico-link\"><i class=\"fab fa-linkedin\"></i></span>";
+        } else if (opt.indexOf(telen) >= 0 || opt.indexOf(telar) >= 0) {
+            ikon = "<span class=\"ico-tele\"><i class=\"fab fa-telegram-plane\"></i></span>";
+        } else if (opt.indexOf("Pinterest") >= 0) {
+            ikon = "<span class=\"ico-pt\"><i class=\"fab fa-pinterest-p\"></i></span>";
+        } else if (opt.indexOf("Twitch") >= 0) {
+            ikon = "<span class=\"ico-twc\"><i class=\"fab fa-twitch\"></i></span>";
+        } else if (opt.indexOf("Tik") >= 0) {
+          ikon = "<span class=\"ico-tic\"><i class=\"fab fa-tiktok\"></i></span>";
+        } else if (opt.indexOf("Diğer") >= 0) {
+          ikon = "<span class=\"ico-dgr\"><i class=\"fas fa-globe\"></i></span>";
+        } else if (opt.indexOf("Apple") >= 0) {
+          ikon = "<span class=\"ico-app\"><i class=\"fab fa-apple\"></i></span>";
+        } else if (opt.indexOf(sncen) >= 0 || opt.indexOf(sncar) >= 0 ) {
+          ikon = "<span class=\"ico-snc\"><i class=\"fab fa-soundcloud\"></i></span>";
+        } else if (opt.indexOf("Snapchat") >= 0 || opt.indexOf("SnapChat") >= 0 || opt.indexOf("سناب شات") >= 0) {
+          ikon = "<span class=\"ico-sc\"><i class=\"fab fa-snapchat\"></i></span>";
+        } else if (opt.indexOf("Yeni Eklenenler") >= 0) {
+          ikon = "<span class=\"ico-kamp\"><i class=\"fab fa-hotjar\"></i></span>";
+      	} else if (opt.indexOf("Whatsapp") >= 0 || opt.indexOf("واتساب") >= 0) {
+          ikon = "<span class=\"ico-whap\"><i class=\"fab fa-whatsapp\"></i></span>";
+        }
+        return ikon;
+      }
+  	  $(document).ready(function() {
+        $(".mk-icons").each(function() {
+          var ico = ikon($(this).text());
+          $(this).html(ico + $(this).text() );
+        });	
+      });
+    </script>
+{% include 'footer.twig' %}

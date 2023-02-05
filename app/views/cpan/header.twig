@@ -1,0 +1,683 @@
+
+{% if user['auth'] %}
+<!DOCTYPE html>
+<html lang="{{site['language']}}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="keywords" content="{{ site['seo_key'] }}">
+  <meta name="description" content="{{ site['seo_desc'] }}">
+  {% if site['favicon'] %}
+    <link rel="shortcut icon" type="image/ico" href="{{ site['favicon'] }}" />
+  {% endif %}
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  
+    {{ site['custom_header'] }}
+
+  
+  </script>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Material+Icons&display=swap" rel="stylesheet">
+            <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css" />
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+           <link rel="stylesheet" type="text/css" href="{{ site['url'] }}/public/cpan/cdn.mypanel.link/1847ba/b1n8c01mizd91jj6.css">
+            <link rel="stylesheet" type="text/css" href="{{ site['url'] }}/public/cpan/cdn.mypanel.link/1847ba/jwxfwcjygn4duyh0.css">
+            <link rel="stylesheet" type="text/css" href="{{ site['url'] }}/public/cpan/cdn.mypanel.link/libs/bootstrap-datetimepicker/4.17.47/bootstrap-datetimepicker.min.css">
+            <link rel="stylesheet" type="text/css" href="{{ site['url'] }}/public/cpan/cdn.mypanel.link/css/font-awesome/css/all.min.css">
+            
+                <script type="text/javascript" src="https://cdn.mypanel.link/libs/jquery/1.12.4/jquery.min.js">
+              </script>
+            <script type="text/javascript" src="https://cdn.mypanel.link/global/flpbonhmkq9tsp29.js">
+              </script>
+            <script type="text/javascript" src="https://cdn.mypanel.link/global/a4kdpfesx15uh7ae.js">
+              </script>
+            <script type="text/javascript" src="https://cdn.mypanel.link/global/596z6ya3isgxcipy.js">
+              </script>
+            <script type="text/javascript" src="https://cdn.mypanel.link/global/4etkgu7ilwdsbob4.js">
+              </script>
+            <script type="text/javascript" src="https://cdn.mypanel.link/global/wnzsoolloslhfumj.js">
+              </script>
+            <script type="text/javascript" src="https://cdn.mypanel.link/global/4gzctc1nniwm34yi.js">
+              </script>
+            <script type="text/javascript" src="https://cdn.mypanel.link/global/axj6p7c9s8l6lgkg.js">
+              </script>
+            <script type="text/javascript" >
+         window.modules.layouts = {"theme_id":4,"auth":1};       </script>
+            <script type="text/javascript" >
+         window.modules.siteSettings = {"title":"The key is hidden for security reasons"};       </script>
+            <script type="text/javascript" >
+              </script>
+              <script type='text/javascript'>
+      $(document).ready(function() {
+      	$("a[href^='http://']").each(
+      		function(){
+      			if(this.href.indexOf(location.hostname) == -1) {
+      				$(this).attr('target', '_blank');
+      				$(this).attr('rel', 'nofollow');
+      			}
+      		}
+      	);
+      	$("a[href^='https://']").each(
+      		function(){
+      			if(this.href.indexOf(location.hostname) == -1) {
+      				$(this).attr('target', '_blank');
+      			}
+      		}
+      	);
+      });
+    </script>
+  </head>
+  <body class="dashboard daymode  en">
+                <div id="page-wrapper">
+      <nav class="navbar navbar-default navbar-static-top ">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <div class="brand-right">
+              <div class="mode mob-mode"><a class="toggle" href="javascript:toggleMode()"><span class="menu-icon"><span id="toggleMIcon" class="material-icons">nights_stay</span></span></a></div>              <div class="dropdown opt-drop">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <span class="menu-icon"><i class="fas fa-user"></i> </span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <li>
+                  	<a href="updates">Updates</a>
+                  </li>
+                  <li role="separator" class="divider"></li>
+                                                                                          <li ><a href="account" >Account</a></li>
+                                                                        <li ><a href="logout" >Logout</a></li>
+                                                    </ul>
+                  </div>
+                            <button type="button" class="navbar-toggle x collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="{{ site['url'] }}/">
+                            <img src="{{ site['url'] }}/{{ site['logo'] }}" alt="{{ site['name'] }}" title="{{ site['name'] }}">
+                          </a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-mobile">
+                            <li  class="active" >
+                <a href="{{ site['url'] }}/" ><span class="mob-menu-text">New order</span><div class="mob-menu-right"><span class="mob-menu-icon"><img src="https://cdn.mypanel.link/1847ba/amk5wcpm1fk76ude.png" alt="menu-icon"/></span></div>
+                </a>
+              </li>
+                            
+                            <li >
+                <a href="{{ site['url'] }}/orders" ><span class="mob-menu-text">Orders</span><div class="mob-menu-right"><span class="mob-menu-icon"><img src="https://cdn.mypanel.link/1847ba/kx4316kbt4eo1ii5.png" alt="menu-icon"/></span></div>
+                </a>
+              </li>
+                            <li >
+                <a href="{{ site['url'] }}/services" ><span class="mob-menu-text">Services</span><div class="mob-menu-right"><span class="mob-menu-icon"><img src="https://cdn.mypanel.link/1847ba/tpu8wo0oa5uom66p.png" alt="menu-icon"/></span></div>
+                </a>
+              </li>
+                            <li >
+                <a href="{{ site['url'] }}/addfunds" ><span class="mob-menu-text">Add funds</span><div class="mob-menu-right"><span class="mob-menu-icon"><img src="https://cdn.mypanel.link/1847ba/n6mt5z625ozb73ln.png" alt="menu-icon"/></span></div>
+                </a>
+              </li>
+                            <li >
+                <a href="{{ site['url'] }}/tickets" ><span class="mob-menu-text">Tickets</span><div class="mob-menu-right"><span class="mob-menu-icon"><img src="https://cdn.mypanel.link/1847ba/ki5d7wxw1eur8n0g.png" alt="menu-icon"/></span></div>
+                </a>
+              </li>
+                            <li >
+                <a href="{{ site['url'] }}/api" ><span class="mob-menu-text">API</span><div class="mob-menu-right"><span class="mob-menu-icon"><img src="https://cdn.mypanel.link/1847ba/r7a2msm8yw1h7k0d.png" alt="menu-icon"/></span></div>
+                </a>
+              </li>
+                            <li >
+                <a href="{{ site['url'] }}/child-panels" ><span class="mob-menu-text">Child panels</span><div class="mob-menu-right"><span class="mob-menu-icon"><img src="https://cdn.mypanel.link/1847ba/0jymh2dwlr2blcp9.png" alt="menu-icon"/></span></div>
+                </a>
+              </li>
+                          </ul>
+            <ul class="nav navbar-nav navbar-left-block">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <li class="dropdown">
+                <a href="{{ site['url'] }}/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="menu-icon"><img src="https://cdn.mypanel.link/1847ba/amk5wcpm1fk76ude.png" alt="menu-icon"/></span><span class="menu-text">New Order <span class="caret"></span></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{{ site['url'] }}/">New Order</a></li>
+                                    {#<li><a href="massorder">Mass Order</a></li>#}
+                                  </ul>
+              </li>
+                                          <li><a href="orders"><span class="menu-icon"><img src="https://cdn.mypanel.link/1847ba/9kt3tm2jxx3hwikj.png" alt="menu-icon"/></span><span class="menu-text">Orders</span></a></li>
+                            <li>
+                <a href="{{ site['url'] }}/addfunds"><span class="menu-icon"><img src="https://cdn.mypanel.link/1847ba/n6mt5z625ozb73ln.png" alt="menu-icon"/></span><span class="menu-text">Add Funds</span></a>
+              </li>
+              <li>
+                <a href="{{ site['url'] }}/tickets"><span class="menu-icon"><img src="https://cdn.mypanel.link/1847ba/ki5d7wxw1eur8n0g.png" alt="menu-icon"/><span class="ticket-count">0</span></span><span class="menu-text">Ticket</span></a>
+              </li>
+              <li>
+                <a href="{{ site['url'] }}/services"><span class="menu-icon"><img src="https://cdn.mypanel.link/1847ba/tpu8wo0oa5uom66p.png" alt="menu-icon"/></span><span class="menu-text">Services</span></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="menu-icon"><img src="https://cdn.mypanel.link/1847ba/0jymh2dwlr2blcp9.png" alt="menu-icon"/></span><span class="menu-text">Make Money <span class="caret"></span></span></a>
+                <ul class="dropdown-menu">
+                                 
+                                                      <li>
+                    <a href="child-panels">Reseller</a>
+                  </li>
+                                  </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right navbar-right-block">
+              {#<li class="update">#}
+              {#  <a href="updates"><span class="menu-icon"><span class="material-icons">notifications_active</span></span><span class="menu-text">Updates</span></a>#}
+              {#</li>#}
+              <li class="mode"><a class="toggle" href="javascript:toggleMode()"><span class="menu-icon"><span id="toggleDIcon" class="material-icons">nights_stay</span></span><span id="toggleText" class="menu-text"> Night Mode</span></a></li>              <li class="dropdown setting">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="menu-icon profPic">
+                  <img src="https://cdn.mypanel.link/1847ba/ci9ipfpbc1iquwxb.png" alt="gender icon" />
+                  </span><span class="menu-text">Setting <span class="caret"></span></span></a>
+                <ul class="dropdown-menu">
+                                                                                          <li><a href="{{ site['url'] }}/account" >Account</a></li>
+                                                                        <li><a href="{{ site['url'] }}/logout" >Logout</a></li>
+                                                    </ul>
+              </li>
+          </div>
+        </div>
+      </nav>
+      <main class="inner-wrap">
+        <style>
+  .label-badge {
+    background-color: #fdf001;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 10px;
+  }
+  .label-badge i{
+  	margin-right: 3px;
+  }
+  .ar .label-badge{
+  	margin-left:0;
+    margin-right: 10px
+  }
+  .ar .label-badge i{
+  	margin-right: 0;
+    margin-left: 3px;
+  }
+  .nightmode .label-badge{
+  	background-color: #484848;
+  }
+  .banner-inner p .uData {
+  font-weight: 700;
+  font-size: 16px;
+  }
+  .modal-logo img {
+    max-width: 172px;
+  }
+  .statusModal .modal-lg {
+  width: 1140px;
+  }
+  .statusModal .modal-header {
+  padding: 0;
+  border: none;
+  }
+  .statusModal .modal-content {
+  border-radius: 45px;
+  border: none;
+  }
+  .statusModal .modal-header button.close {
+  position: absolute;
+  right: 0;
+  box-shadow: none;
+  background-color: #fdf001;
+  z-index: 11;
+  color: #000;
+  opacity: 1;
+  text-shadow: none;
+  border: none;
+  font-weight: 300;
+  }
+  .statusModal .modal-body {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .modal-left {
+  max-width: 20%;
+  flex: 0 0 20%;
+  }
+  .modal-right {
+  max-width: 80%;
+  flex: 0 0 80%;
+  display: flex;
+  flex-wrap: wrap;
+  }
+  .modal-logo {
+  background-color: #000;
+  border-radius: 42px 0 0 0;
+  text-align: center;
+  padding: 25px 0;
+  }
+  .ar .modal-logo {
+    border-radius: 0 42px 0px 0;
+  }
+  .status-box-wrap {
+  max-width: 16.65%;
+  flex: 0 0 16.65%;
+  transition: all 0.4s ease-in;
+  }
+  .modal-status-title {
+  background-color: #f7f9f9;
+  margin: 0;
+  list-style: none;
+  padding: 30px 25px;
+  }
+  .ar .modal-status-title {
+  padding: 30px 23px;
+  }
+  .modal-status-title li {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  line-height: 48px;
+  }
+  .modal-status-title li sup{
+  font-size: 14px;
+  font-weight: 700;
+  }  
+  .status-slider .slick-list {
+  padding: 0 !important;
+  }
+  .status-box-top {
+  padding: 20px 0;
+  text-align: center;
+  }
+  .status-box-top h4 {
+  color: #b0b0b0;
+  font-weight: 300;
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  }
+  .status-box-top h3 {
+  margin-bottom: 0;
+  font-size: 22px;
+  font-weight: 500;
+  color: #000;
+  }
+  .status-box-badge {
+  background-image: url(https://res.cloudinary.com/smmcpan2/image/upload/v1627852108/p7.png);
+  width: 126px;
+  height: 83px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto 0;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  }
+  .slick-center .status-box-badge{
+  background-position: -127px 0px;
+  }
+  .modal-status-value {
+  padding: 30px 0px;
+  margin: 0;
+  list-style: none;
+  }
+  .modal-status-value li {
+  text-align: center;
+  line-height: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  .modal-status-value li .price {
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0;
+  color: #000;
+  line-height: inherit;
+  }
+  .modal-status-value li .price sup {
+  font-weight: 700;
+  }
+  .slick-center .status-box-wrap {
+  background-color: #efe200;
+  }
+  .slick-center .status-box-wrap h4 {
+  color: #fff;
+  }
+  .modal-status-value li div {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  margin: auto;
+  border-radius: 50px;
+  text-align: center;
+  line-height: 24px;
+  font-size: 14px;
+  align-items: center;
+  justify-content: center;
+  }
+  .modal-status-value li div.disabl {
+  color: #ffffff;
+  background-color: #ff0000;
+  }
+  .modal-status-value li div.enble {
+  background-color: #efe200;
+  }
+  .slick-center .modal-status-value li div.disabl, .slick-center .modal-status-value li div.enble {
+  background-color: #fff;
+  }
+  .slick-center .modal-status-value li div.disabl{
+  color: #ff0000;
+  }
+  .status-slider .slick-dots button::before {
+  background-color: #efe200;
+  width: 10px;
+  height: 10px;
+  }
+  .status-slider .slick-dots button {
+  padding: 0;
+  width: 10px;
+  height: 10px;
+  }
+  .status-slider .slick-dots li {
+  height: auto;
+  width: auto;
+  }
+  .slick-dotted.status-slider {
+  margin-bottom: 0;
+  }
+  .ar .statusModal .modal-header button.close {
+  right: auto;
+  left: -15px;
+  float: left;
+  }
+  .modal-bottom {
+    max-width: 100%;
+    flex: 0 0 100%;
+    background-color: #f7f9f9;
+    border-radius: 0 0 42px 42px;
+    padding: 10px 25px 15px;
+  }
+  .modal-bottom p {
+    font-size: 14px;
+    margin: 0;
+  }
+  .modal-bottom ul {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+  }
+  .modal-bottom ul li {
+    font-size: 13px;
+  }
+  .ar .modal-status-value{
+    padding: 22px 0px;
+  }
+  .nightmode .modal-bottom,
+  .nightmode .modal-status-title{
+    background-color: #484848;
+  }
+  .nightmode .modal-status-title li,
+  .nightmode .status-box-top h3,
+  .nightmode .modal-status-value li .price{
+  	color:#ffffff;
+  }
+  .nightmode #service_name{
+  	color: #000000;
+  }
+  
+  @media(max-width:550px){
+    .modal-logo{
+      border-radius: 42px 42px 0 0;
+  	}
+    .modal-status-title {
+  	  display: none;
+    }
+  	.statusModal .modal-body {
+      flex-direction: column;
+  	}
+    .modal-left,
+    .modal-right{
+      max-width: 100%;
+      flex: 0 0 100%;
+    }
+  	.statusModal .modal-lg {
+      width: auto;
+  	}
+    .status-box-wrap {
+      max-width: 100%;
+      flex: 0 0 100%;
+    }
+  	.status-box-top {
+      padding: 10px 0;
+    }
+    .modal-status-value {
+      padding: 10px 0px;
+    }
+  	.modal-status-value li{
+  	  min-height: 38px;
+  	}
+  	.modal-status-value li div, 
+  	.modal-status-value li h5 {
+      position: relative;
+      padding-left: 75%;
+      border-radius: 4px;
+      height: auto;
+      line-height: 32px;
+      display: block;
+      margin-top: 0;
+      margin-bottom: 0;
+      width: auto;
+  	}
+  	.modal-status-value li div::before, 
+  	.modal-status-value li h5::before {
+      content: attr(data-head);
+      display: inline-block;
+      position: absolute;
+      left: 10px;
+      font-size: 14px;
+      line-height: 32px;
+  	}
+  	.modal-status-value li .price::before {
+      position: relative;
+      left: auto;
+      margin-right: 10px;
+  	}
+  	.modal-status-value li div i {
+      margin-right: 15px;
+      margin-left: -15px;
+  	}
+  	.modal-status-value li .price {
+      font-size: 14px;
+      line-height: 32px;
+      padding-left: 0;
+      display: inline-block;
+      white-space: nowrap;
+  	}
+    .ar .modal-status-value li div::before, 
+    .ar .modal-status-value li h5::before {
+      left: auto;
+      right: 10px;
+    }
+  	.ar .modal-status-value li div, 
+  	.ar .modal-status-value li h5 {
+      padding-right: 75%;
+      padding-left: 0;
+  	}
+  	.ar .modal-status-value li div i {
+      margin-right: -15px;
+      margin-left: 15px;
+  	}
+  	.ar .modal-status-value li .price {
+      padding-right: 0;
+  	}
+  	.ar .modal-status-value li .price::before{
+  	  margin-left: 20px;
+  	  margin-right: 0;
+    }
+  	.nightmode .modal-status-value li div {
+      color: #000;
+  	}
+    .ar .statusModal .modal-header button.close{
+  	  left: 5px;
+    }
+    .ar .modal-logo {
+      border-radius: 42px 42px 0px 0;
+    }
+  }
+</style>
+{% else %}
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+{% for lang in site['languages'] %}
+{% if lang['active'] %}
+<html lang="{{ lang['code'] }}">
+{% endif %}
+{% endfor %}
+<head>
+  <base href="{{ site['url'] }}/">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="keywords" content="{{ keywords }}">
+  <meta name="description" content="{{ description }}">
+  {% if site['favicon'] %}
+    <link rel="shortcut icon" type="image/ico" href="{{ site['favicon'] }}" />
+  {% endif %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Material+Icons&display=swap" rel="stylesheet">
+            <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css" />
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+   
+{{ headerCode }}        
+ <link rel="stylesheet" type="text/css" href="public/cpan/cdn.mypanel.link/1847ba/b1n8c01mizd91jj6.css">
+            <link rel="stylesheet" type="text/css" href="public/cpan/cdn.mypanel.link/1847ba/jwxfwcjygn4duyh0.css">
+            <link rel="stylesheet" type="text/css" href="public/cpan/cdn.mypanel.link/libs/bootstrap-datetimepicker/4.17.47/bootstrap-datetimepicker.min.css">
+            <link rel="stylesheet" type="text/css" href="public/cpan/cdn.mypanel.link/css/font-awesome/css/all.min.css">
+              
+              
+                <script type="text/javascript" src="https://cdn.mypanel.link/libs/jquery/1.12.4/jquery.min.js">
+              </script>
+            <script type="text/javascript" src="https://cdn.mypanel.link/global/flpbonhmkq9tsp29.js">
+              </script>
+            <script type="text/javascript" src="https://cdn.mypanel.link/global/a4kdpfesx15uh7ae.js">
+              </script>
+            <script type="text/javascript" src="https://cdn.mypanel.link/global/596z6ya3isgxcipy.js">
+              </script>
+            <script type="text/javascript" src="https://cdn.mypanel.link/global/4etkgu7ilwdsbob4.js">
+              </script>
+            <script type="text/javascript" src="https://cdn.mypanel.link/global/wnzsoolloslhfumj.js">
+              </script>
+            <script type="text/javascript" src="https://cdn.mypanel.link/global/4gzctc1nniwm34yi.js">
+              </script>
+            <script type="text/javascript" src="https://cdn.mypanel.link/global/axj6p7c9s8l6lgkg.js">
+              </script>
+            <script type="text/javascript" >
+              </script>
+              <script type='text/javascript'>
+      $(document).ready(function() {
+      	$("a[href^='http://']").each(
+      		function(){
+      			if(this.href.indexOf(location.hostname) == -1) {
+      				$(this).attr('target', '_blank');
+      				$(this).attr('rel', 'nofollow');
+      			}
+      		}
+      	);
+      	$("a[href^='https://']").each(
+      		function(){
+      			if(this.href.indexOf(location.hostname) == -1) {
+      				$(this).attr('target', '_blank');
+      			}
+      		}
+      	);
+      });
+    </script>
+  </head>
+  
+  <body class=" guest en">
+                <nav class="navbar navbar-default navbar-inverse navbar-static-top ">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+ {% if site["logo"] %}
+                                      <img src="{{ site['logo'] }}" alt="{{ site["site_name"] }}" title="{{ site["site_name"] }}">
+                                    {% else %}
+                                      {{ site["site_name"] }}
+                                    {% endif %}              
+                      </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left-block">
+            <li class="dropdown">
+                
+                                                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> English <span class="caret"></span></a>
+                                          <ul class="dropdown-menu dropdown-max-height">
+                                {% for lang in site['languages'] %}
+                                 <li {% if lang['active'] %} selected class="active" {% endif %} ><a href="?lang={{ lang['code'] }}">{{ lang['name'] }}</a></li>
+                                {% endfor %}
+                              </ul>
+            </li>
+          </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+              <a href="/services" >
+                                Services
+              </a>
+            </li>
+                        <li >
+              <a href="/faq" >
+                                FAQ
+              </a>
+            </li>
+                        <li >
+              <a href="/signup" >
+                                Sign Up
+              </a>
+            </li>
+                        <li  class="active" >
+              <a href="/" >
+                                Sign In
+              </a>
+            </li>
+                      </ul>
+        </div>
+      </div>
+    </nav>
+
+{% endif %}
+
+
+
+

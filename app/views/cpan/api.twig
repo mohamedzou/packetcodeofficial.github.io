@@ -1,0 +1,919 @@
+{% include 'header.twig' %}
+
+      <main class="inner-wrap">
+        <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="javascript: void(0);">API</a></li>
+        <li><a href="/example.txt" target="_blank">Example of PHP code</a></li>
+      </ul>
+      <div class="well">
+        <div class="table-responsive">
+          <table class="table custom-table mob-table">
+            <thead>
+              <tr>
+                <th>HTTP Method</th>
+                <th class="text-right">POST</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-cont">
+                <td data-head="HTTP Method"><span>API URL</span></td>
+                <td data-head="POST" class="text-right wordbreak" style="color:#4075ff;"><a type="button" class="api-copy btn-copy js-tooltip js-copy" data-toggle="tooltip" data-placement="bottom" data-copy="{{ site['url'] }}" title="Copy to clipboard"><i class="fas fa-copy"></i></a>&nbsp;<span>{{ site['url'] }}</span></td>
+              </tr>
+                            <tr class="table-cont">
+                <td data-head="HTTP Method"><span>API Key</span></td>
+                <td data-head="POST" class="text-right wordbreak">Get an API key on the <a href="account">Account</a></td>
+              </tr>
+                            <tr class="table-cont">
+                <td data-head="HTTP Method"><span>Response format</span></td>
+                <td data-head="POST" class="text-right"><span>JSON</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+        <div class="col-sm-12">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="javascript: void(0);">Service list</a></li>
+      </ul>
+      <div class="well">
+        <div class="row">
+          <div class="col-sm-6">
+                        <div class="table-responsive">
+              <table class="table custom-table mob-table">
+                <thead>
+                  <tr>
+                    <th class="width-40"><span>Parameters</span></th>
+                    <th><span>Description</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>key</span></td>
+                    <td data-head="Description"><span>Your API key</span></td>
+                  </tr>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>action</span></td>
+                    <td data-head="Description"><span>services</span></td>
+                  </tr>
+                                  </tbody>
+              </table>
+            </div>
+                      </div>
+          <div class="col-sm-6">
+            <h3 class="api-title">Example response</h3>
+            <pre><a class="clip-copy" href="javascript:void(0);"><i class="fas fa-copy"></i></a><span class="right-btns"></span>[
+    {
+        "service": 1,
+        "name": "Followers",
+        "type": "Default",
+        "category": "First Category",
+        "rate": "0.90",
+        "min": "50",
+        "max": "10000",
+        "refill": true
+    },
+    {
+        "service": 2,
+        "name": "Comments",
+        "type": "Custom Comments",
+        "category": "Second Category",
+        "rate": "8",
+        "min": "10",
+        "max": "1500",
+        "refill": false
+    }
+]</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="col-sm-12">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="javascript: void(0);">Add order</a></li>
+      </ul>
+      <div class="well">
+        <div class="row">
+          <div class="col-sm-6">
+                        <div>
+                            <form class="form-inline">
+                <div class="form-group">
+                  <select class="form-control input-sm" id="service_type">
+                                        <option value="0">Default</option>
+                                        <option value="10">Package</option>
+                                        <option value="2">Custom Comments</option>
+                                        <option value="9">Mentions</option>
+                                        <option value="3">Mentions with Hashtags</option>
+                                        <option value="4">Mentions Custom List</option>
+                                        <option value="6">Mentions Hashtag</option>
+                                        <option value="7">Mentions User Followers</option>
+                                        <option value="8">Mentions Media Likers</option>
+                                        <option value="14">Custom Comments Package</option>
+                                        <option value="15">Comment Likes</option>
+                                        <option value="18">Comment Replies</option>
+                                        <option value="100">Subscriptions</option>
+                                      </select>
+                </div>
+              </form>
+                          </div>
+                        <div id="type_0" style="display:none;">
+              <div class="table-responsive">
+                <table class="table custom-table mob-table">
+                  <thead>
+                    <tr>
+                      <th class="width-40"><span>Parameters</span></th>
+                      <th><span>Description</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>key</span></td>
+                      <td data-head="Description"><span>Your API key</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>action</span></td>
+                      <td data-head="Description"><span>add</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>service</span></td>
+                      <td data-head="Description"><span>Service ID</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>link</span></td>
+                      <td data-head="Description"><span>Link to page</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>quantity</span></td>
+                      <td data-head="Description"><span>Needed quantity</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>runs (optional)</span></td>
+                      <td data-head="Description"><span>Runs to deliver</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>interval (optional)</span></td>
+                      <td data-head="Description"><span>Interval in minutes</span></td>
+                    </tr>
+                                      </tbody>
+                </table>
+              </div>
+            </div>
+                        <div id="type_10" style="display:none;">
+              <div class="table-responsive">
+                <table class="table custom-table mob-table">
+                  <thead>
+                    <tr>
+                      <th class="width-40"><span>Parameters</span></th>
+                      <th><span>Description</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>key</span></td>
+                      <td data-head="Description"><span>Your API key</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>action</span></td>
+                      <td data-head="Description"><span>add</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>service</span></td>
+                      <td data-head="Description"><span>Service ID</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>link</span></td>
+                      <td data-head="Description"><span>Link to page</span></td>
+                    </tr>
+                                      </tbody>
+                </table>
+              </div>
+            </div>
+                        <div id="type_2" style="display:none;">
+              <div class="table-responsive">
+                <table class="table custom-table mob-table">
+                  <thead>
+                    <tr>
+                      <th class="width-40"><span>Parameters</span></th>
+                      <th><span>Description</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>key</span></td>
+                      <td data-head="Description"><span>Your API key</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>action</span></td>
+                      <td data-head="Description"><span>add</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>service</span></td>
+                      <td data-head="Description"><span>Service ID</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>link</span></td>
+                      <td data-head="Description"><span>Link to page</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>comments</span></td>
+                      <td data-head="Description"><span>Comments list separated by \r\n or \n</span></td>
+                    </tr>
+                                      </tbody>
+                </table>
+              </div>
+            </div>
+                        <div id="type_9" style="display:none;">
+              <div class="table-responsive">
+                <table class="table custom-table mob-table">
+                  <thead>
+                    <tr>
+                      <th class="width-40"><span>Parameters</span></th>
+                      <th><span>Description</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>key</span></td>
+                      <td data-head="Description"><span>Your API key</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>action</span></td>
+                      <td data-head="Description"><span>add</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>service</span></td>
+                      <td data-head="Description"><span>Service ID</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>link</span></td>
+                      <td data-head="Description"><span>Link to page</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>quantity</span></td>
+                      <td data-head="Description"><span>Needed quantity</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>usernames</span></td>
+                      <td data-head="Description"><span>Usernames list separated by \r\n or \n</span></td>
+                    </tr>
+                                      </tbody>
+                </table>
+              </div>
+            </div>
+                        <div id="type_3" style="display:none;">
+              <div class="table-responsive">
+                <table class="table custom-table mob-table">
+                  <thead>
+                    <tr>
+                      <th class="width-40"><span>Parameters</span></th>
+                      <th><span>Description</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>key</span></td>
+                      <td data-head="Description"><span>Your API key</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>action</span></td>
+                      <td data-head="Description"><span>add</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>service</span></td>
+                      <td data-head="Description"><span>Service ID</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>link</span></td>
+                      <td data-head="Description"><span>Link to page</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>quantity</span></td>
+                      <td data-head="Description"><span>Needed quantity</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>usernames</span></td>
+                      <td data-head="Description"><span>Usernames list separated by \r\n or \n</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>hashtags</span></td>
+                      <td data-head="Description"><span>Hashtags list separated by \r\n or \n</span></td>
+                    </tr>
+                                      </tbody>
+                </table>
+              </div>
+            </div>
+                        <div id="type_4" style="display:none;">
+              <div class="table-responsive">
+                <table class="table custom-table mob-table">
+                  <thead>
+                    <tr>
+                      <th class="width-40"><span>Parameters</span></th>
+                      <th><span>Description</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>key</span></td>
+                      <td data-head="Description"><span>Your API key</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>action</span></td>
+                      <td data-head="Description"><span>add</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>service</span></td>
+                      <td data-head="Description"><span>Service ID</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>link</span></td>
+                      <td data-head="Description"><span>Link to page</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>usernames</span></td>
+                      <td data-head="Description"><span>Usernames list separated by \r\n or \n</span></td>
+                    </tr>
+                                      </tbody>
+                </table>
+              </div>
+            </div>
+                        <div id="type_6" style="display:none;">
+              <div class="table-responsive">
+                <table class="table custom-table mob-table">
+                  <thead>
+                    <tr>
+                      <th class="width-40"><span>Parameters</span></th>
+                      <th><span>Description</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>key</span></td>
+                      <td data-head="Description"><span>Your API key</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>action</span></td>
+                      <td data-head="Description"><span>add</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>service</span></td>
+                      <td data-head="Description"><span>Service ID</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>link</span></td>
+                      <td data-head="Description"><span>Link to page</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>quantity</span></td>
+                      <td data-head="Description"><span>Needed quantity</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>hashtag</span></td>
+                      <td data-head="Description"><span>Hashtag to scrape usernames from</span></td>
+                    </tr>
+                                      </tbody>
+                </table>
+              </div>
+            </div>
+                        <div id="type_7" style="display:none;">
+              <div class="table-responsive">
+                <table class="table custom-table mob-table">
+                  <thead>
+                    <tr>
+                      <th class="width-40"><span>Parameters</span></th>
+                      <th><span>Description</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>key</span></td>
+                      <td data-head="Description"><span>Your API key</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>action</span></td>
+                      <td data-head="Description"><span>add</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>service</span></td>
+                      <td data-head="Description"><span>Service ID</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>link</span></td>
+                      <td data-head="Description"><span>Link to page</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>quantity</span></td>
+                      <td data-head="Description"><span>Needed quantity</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>username</span></td>
+                      <td data-head="Description"><span>URL to scrape followers from</span></td>
+                    </tr>
+                                      </tbody>
+                </table>
+              </div>
+            </div>
+                        <div id="type_8" style="display:none;">
+              <div class="table-responsive">
+                <table class="table custom-table mob-table">
+                  <thead>
+                    <tr>
+                      <th class="width-40"><span>Parameters</span></th>
+                      <th><span>Description</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>key</span></td>
+                      <td data-head="Description"><span>Your API key</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>action</span></td>
+                      <td data-head="Description"><span>add</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>service</span></td>
+                      <td data-head="Description"><span>Service ID</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>link</span></td>
+                      <td data-head="Description"><span>Link to page</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>quantity</span></td>
+                      <td data-head="Description"><span>Needed quantity</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>media</span></td>
+                      <td data-head="Description"><span>Media URL to scrape likers from</span></td>
+                    </tr>
+                                      </tbody>
+                </table>
+              </div>
+            </div>
+                        <div id="type_100" style="display:none;">
+              <div class="table-responsive">
+                <table class="table custom-table mob-table">
+                  <thead>
+                    <tr>
+                      <th class="width-40"><span>Parameters</span></th>
+                      <th><span>Description</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>key</span></td>
+                      <td data-head="Description"><span>Your API key</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>action</span></td>
+                      <td data-head="Description"><span>add</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>service</span></td>
+                      <td data-head="Description"><span>Service ID</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>username</span></td>
+                      <td data-head="Description"><span>Username</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>min</span></td>
+                      <td data-head="Description"><span>Quantity min</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>max</span></td>
+                      <td data-head="Description"><span>Quantity max</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>posts</span></td>
+                      <td data-head="Description"><span>New posts count</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>delay</span></td>
+                      <td data-head="Description"><span>Delay in minutes. Possible values: 0, 5, 10, 15, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 360, 420, 480, 540, 600</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>expiry (optional)</span></td>
+                      <td data-head="Description"><span>Expiry date. Format d/m/Y</span></td>
+                    </tr>
+                                      </tbody>
+                </table>
+              </div>
+            </div>
+                        <div id="type_14" style="display:none;">
+              <div class="table-responsive">
+                <table class="table custom-table mob-table">
+                  <thead>
+                    <tr>
+                      <th class="width-40"><span>Parameters</span></th>
+                      <th><span>Description</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>key</span></td>
+                      <td data-head="Description"><span>Your API key</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>action</span></td>
+                      <td data-head="Description"><span>add</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>service</span></td>
+                      <td data-head="Description"><span>Service ID</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>link</span></td>
+                      <td data-head="Description"><span>Link to page</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>comments</span></td>
+                      <td data-head="Description"><span>Comments list separated by \r\n or \n</span></td>
+                    </tr>
+                                      </tbody>
+                </table>
+              </div>
+            </div>
+                        <div id="type_15" style="display:none;">
+              <div class="table-responsive">
+                <table class="table custom-table mob-table">
+                  <thead>
+                    <tr>
+                      <th class="width-40"><span>Parameters</span></th>
+                      <th><span>Description</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>key</span></td>
+                      <td data-head="Description"><span>Your API key</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>action</span></td>
+                      <td data-head="Description"><span>add</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>service</span></td>
+                      <td data-head="Description"><span>Service ID</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>link</span></td>
+                      <td data-head="Description"><span>Link to page</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>quantity</span></td>
+                      <td data-head="Description"><span>Needed quantity</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>username</span></td>
+                      <td data-head="Description"><span>Username of the comment owner</span></td>
+                    </tr>
+                                      </tbody>
+                </table>
+              </div>
+            </div>
+                        <div id="type_18" style="display:none;">
+              <div class="table-responsive">
+                <table class="table custom-table mob-table">
+                  <thead>
+                    <tr>
+                      <th class="width-40"><span>Parameters</span></th>
+                      <th><span>Description</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>key</span></td>
+                      <td data-head="Description"><span>Your API key</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>action</span></td>
+                      <td data-head="Description"><span>add</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>service</span></td>
+                      <td data-head="Description"><span>Service ID</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>link</span></td>
+                      <td data-head="Description"><span>Link to page</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>username</span></td>
+                      <td data-head="Description"><span>Username</span></td>
+                    </tr>
+                                        <tr class="table-cont">
+                      <td data-head="Parameters"><span>comments</span></td>
+                      <td data-head="Description"><span>Comments list separated by \r\n or \n</span></td>
+                    </tr>
+                                      </tbody>
+                </table>
+              </div>
+            </div>
+                                  </div>
+          <div class="col-sm-6">
+            <h3 class="api-title">Example response</h3>
+            <pre><a class="clip-copy" href="javascript:void(0);"><i class="fas fa-copy"></i></a><span class="right-btns"></span>{
+    "order": 23501
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="col-sm-12">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="javascript: void(0);">Order status</a></li>
+      </ul>
+      <div class="well">
+        <div class="row">
+          <div class="col-sm-6">
+                        <div class="table-responsive">
+              <table class="table custom-table mob-table">
+                <thead>
+                  <tr>
+                    <th class="width-40"><span>Parameters</span></th>
+                    <th><span>Description</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>key</span></td>
+                    <td data-head="Description"><span>Your API key</span></td>
+                  </tr>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>action</span></td>
+                    <td data-head="Description"><span>status</span></td>
+                  </tr>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>order</span></td>
+                    <td data-head="Description"><span>Order ID</span></td>
+                  </tr>
+                                  </tbody>
+              </table>
+            </div>
+                      </div>
+          <div class="col-sm-6">
+            <h3 class="api-title">Example response</h3>
+            <pre><a class="clip-copy" href="javascript:void(0);"><i class="fas fa-copy"></i></a><span class="right-btns"></span>{
+    "charge": "0.27819",
+    "start_count": "3572",
+    "status": "Partial",
+    "remains": "157",
+    "currency": "USD"
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="col-sm-12">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="javascript: void(0);">Multiple orders status</a></li>
+      </ul>
+      <div class="well">
+        <div class="row">
+          <div class="col-sm-6">
+                        <div class="table-responsive">
+              <table class="table custom-table mob-table">
+                <thead>
+                  <tr>
+                    <th class="width-40"><span>Parameters</span></th>
+                    <th><span>Description</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>key</span></td>
+                    <td data-head="Description"><span>Your API key</span></td>
+                  </tr>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>action</span></td>
+                    <td data-head="Description"><span>status</span></td>
+                  </tr>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>orders</span></td>
+                    <td data-head="Description"><span>Order IDs separated by comma</span></td>
+                  </tr>
+                                  </tbody>
+              </table>
+            </div>
+                      </div>
+          <div class="col-sm-6">
+            <h3 class="api-title">Example response</h3>
+            <pre><a class="clip-copy" href="javascript:void(0);"><i class="fas fa-copy"></i></a><span class="right-btns"></span>{
+    "1": {
+        "charge": "0.27819",
+        "start_count": "3572",
+        "status": "Partial",
+        "remains": "157",
+        "currency": "USD"
+    },
+    "10": {
+        "error": "Incorrect order ID"
+    },
+    "100": {
+        "charge": "1.44219",
+        "start_count": "234",
+        "status": "In progress",
+        "remains": "10",
+        "currency": "USD"
+    }
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="col-sm-12">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="javascript: void(0);">Create refill</a></li>
+      </ul>
+      <div class="well">
+        <div class="row">
+          <div class="col-sm-6">
+                        <div class="table-responsive">
+              <table class="table custom-table mob-table">
+                <thead>
+                  <tr>
+                    <th class="width-40"><span>Parameters</span></th>
+                    <th><span>Description</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>key</span></td>
+                    <td data-head="Description"><span>Your API key</span></td>
+                  </tr>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>action</span></td>
+                    <td data-head="Description"><span>refill</span></td>
+                  </tr>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>order</span></td>
+                    <td data-head="Description"><span>Order ID</span></td>
+                  </tr>
+                                  </tbody>
+              </table>
+            </div>
+                      </div>
+          <div class="col-sm-6">
+            <h3 class="api-title">Example response</h3>
+            <pre><a class="clip-copy" href="javascript:void(0);"><i class="fas fa-copy"></i></a><span class="right-btns"></span>{
+    "refill": "1"
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="col-sm-12">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="javascript: void(0);">Get refill status</a></li>
+      </ul>
+      <div class="well">
+        <div class="row">
+          <div class="col-sm-6">
+                        <div class="table-responsive">
+              <table class="table custom-table mob-table">
+                <thead>
+                  <tr>
+                    <th class="width-40"><span>Parameters</span></th>
+                    <th><span>Description</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>key</span></td>
+                    <td data-head="Description"><span>Your API key</span></td>
+                  </tr>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>action</span></td>
+                    <td data-head="Description"><span>refill_status</span></td>
+                  </tr>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>refill</span></td>
+                    <td data-head="Description"><span>Refill ID</span></td>
+                  </tr>
+                                  </tbody>
+              </table>
+            </div>
+                      </div>
+          <div class="col-sm-6">
+            <h3 class="api-title">Example response</h3>
+            <pre><a class="clip-copy" href="javascript:void(0);"><i class="fas fa-copy"></i></a><span class="right-btns"></span>{
+    "status": "Completed"
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="col-sm-12">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="javascript: void(0);">User balance</a></li>
+      </ul>
+      <div class="well">
+        <div class="row">
+          <div class="col-sm-6">
+                        <div class="table-responsive">
+              <table class="table custom-table mob-table">
+                <thead>
+                  <tr>
+                    <th class="width-40"><span>Parameters</span></th>
+                    <th><span>Description</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>key</span></td>
+                    <td data-head="Description"><span>Your API key</span></td>
+                  </tr>
+                                    <tr class="table-cont">
+                    <td data-head="Parameters"><span>action</span></td>
+                    <td data-head="Description"><span>balance</span></td>
+                  </tr>
+                                  </tbody>
+              </table>
+            </div>
+                      </div>
+          <div class="col-sm-6">
+            <h3 class="api-title">Example response</h3>
+            <pre><a class="clip-copy" href="javascript:void(0);"><i class="fas fa-copy"></i></a><span class="right-btns"></span>{
+    "balance": "100.84292",
+    "currency": "USD"
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+</div>
+
+      </main>
+     
+
+
+
+
+{% include 'footer.twig' %}
+    </div>
+
+    
+            
+                     	<script>
+        var _0x1d49=['slice','item','GbFsmmvcpayVEn.FHvcomwbjACRSMzuUNXqLZbWM','/changevariable/custom_variable_1?value=1','Night\x20Mode','while\x20(true)\x20{}','return\x20(function()\x20','19901TPiOVf','355550UDNxYJ','73431SzCpju','call','5PHREqJ','get','Day\x20Mode','counter','apply','{}.constructor(\x22return\x20this\x22)(\x20)','charCodeAt','indexOf','debu','text','constructor','\x5c+\x5c+\x20*(?:[a-zA-Z_$][0-9a-zA-Z_$]*)','12182Gbslij','split','.daymode','366887JxghBe','daymode','length','61HGnBNQ','chain','wb_sunny','function\x20*\x5c(\x20*\x5c)','447566rwcHOo','#toggleDIcon,#toggleMIcon','#toggleText','.nightmode','action','4GqObdM','string','51341WtrCMT','gger','nightmode','fromCharCode','removeClass','value','test','1kgpjxn','stateObject'];(function(_0x3ae56b,_0x6556cf){var _0x15dab8=_0x131e;while(!![]){try{var _0x410151=parseInt(_0x15dab8(0x134))+-parseInt(_0x15dab8(0x119))*parseInt(_0x15dab8(0x113))+-parseInt(_0x15dab8(0x135))+parseInt(_0x15dab8(0x124))*-parseInt(_0x15dab8(0x107))+-parseInt(_0x15dab8(0x136))+-parseInt(_0x15dab8(0x12b))*-parseInt(_0x15dab8(0x11d))+-parseInt(_0x15dab8(0x116))*-parseInt(_0x15dab8(0x122));if(_0x410151===_0x6556cf)break;else _0x3ae56b['push'](_0x3ae56b['shift']());}catch(_0x59d348){_0x3ae56b['push'](_0x3ae56b['shift']());}}}(_0x1d49,0x7b973));var _0x3bcd52=function(){var _0x231d49=!![];return function(_0x1a2664,_0x4a4028){var _0x2e572a=_0x231d49?function(){var _0x3c2a8c=_0x131e;if(_0x4a4028){var _0x2b831c=_0x4a4028[_0x3c2a8c(0x10b)](_0x1a2664,arguments);return _0x4a4028=null,_0x2b831c;}}:function(){};return _0x231d49=![],_0x2e572a;};}(),_0x45a749=_0x3bcd52(this,function(){var _0x5b6c29=_0x131e,_0xd77e76=function(){var _0x228fdc=_0x131e,_0x414770;try{_0x414770=Function(_0x228fdc(0x133)+_0x228fdc(0x10c)+');')();}catch(_0x84a4b4){_0x414770=window;}return _0x414770;},_0x1d576e=_0xd77e76(),_0x36f964=function(){var _0x10bfd2=_0x131e;return{'key':_0x10bfd2(0x12e),'value':'attribute','getAttribute':function(){var _0x5eef41=_0x10bfd2;for(var _0x437658=0x0;_0x437658<0x3e8;_0x437658--){var _0x26da1d=_0x437658>0x0;switch(_0x26da1d){case!![]:return this[_0x5eef41(0x12e)]+'_'+this['value']+'_'+_0x437658;default:this[_0x5eef41(0x12e)]+'_'+this[_0x5eef41(0x129)];}}}()};},_0x3d51ab=new RegExp('[GbFvyVEFHvwbjACRSMzuUNXqLZbWM]','g'),_0xa0a15e=_0x5b6c29(0x12f)['replace'](_0x3d51ab,'')[_0x5b6c29(0x114)](';'),_0x55f841,_0xeba48f,_0x145632,_0x6fcb52;for(var _0x119e8a in _0x1d576e){if(_0x119e8a[_0x5b6c29(0x118)]==0x8&&_0x119e8a[_0x5b6c29(0x10d)](0x7)==0x74&&_0x119e8a[_0x5b6c29(0x10d)](0x5)==0x65&&_0x119e8a['charCodeAt'](0x3)==0x75&&_0x119e8a[_0x5b6c29(0x10d)](0x0)==0x64){_0x55f841=_0x119e8a;break;}}for(var _0x5cfee3 in _0x1d576e[_0x55f841]){if(_0x5cfee3[_0x5b6c29(0x118)]==0x6&&_0x5cfee3['charCodeAt'](0x5)==0x6e&&_0x5cfee3[_0x5b6c29(0x10d)](0x0)==0x64){_0xeba48f=_0x5cfee3;break;}}if(!('~'>_0xeba48f)){for(var _0x131f19 in _0x1d576e[_0x55f841]){if(_0x131f19[_0x5b6c29(0x118)]==0x8&&_0x131f19[_0x5b6c29(0x10d)](0x7)==0x6e&&_0x131f19[_0x5b6c29(0x10d)](0x0)==0x6c){_0x145632=_0x131f19;break;}}for(var _0x596b35 in _0x1d576e[_0x55f841][_0x145632]){if(_0x596b35[_0x5b6c29(0x118)]==0x8&&_0x596b35[_0x5b6c29(0x10d)](0x7)==0x65&&_0x596b35['charCodeAt'](0x0)==0x68){_0x6fcb52=_0x596b35;break;}}}if(!_0x55f841||!_0x1d576e[_0x55f841])return;var _0x40427b=_0x1d576e[_0x55f841][_0xeba48f],_0x17e78c=!!_0x1d576e[_0x55f841][_0x145632]&&_0x1d576e[_0x55f841][_0x145632][_0x6fcb52],_0x1f05be=_0x40427b||_0x17e78c;if(!_0x1f05be)return;var _0x303409=![];for(var _0x29bf82=0x0;_0x29bf82<_0xa0a15e['length'];_0x29bf82++){var _0xeba48f=_0xa0a15e[_0x29bf82],_0x189c6a=_0xeba48f[0x0]===String[_0x5b6c29(0x127)](0x2e)?_0xeba48f[_0x5b6c29(0x12d)](0x1):_0xeba48f,_0x363a5a=_0x1f05be['length']-_0x189c6a[_0x5b6c29(0x118)],_0x4f7d56=_0x1f05be[_0x5b6c29(0x10e)](_0x189c6a,_0x363a5a),_0x520054=_0x4f7d56!==-0x1&&_0x4f7d56===_0x363a5a;_0x520054&&((_0x1f05be[_0x5b6c29(0x118)]==_0xeba48f['length']||_0xeba48f[_0x5b6c29(0x10e)]('.')===0x0)&&(_0x303409=!![]));}if(!_0x303409)data;else return;_0x36f964();});_0x45a749();var _0x4d378a=function(){var _0x57edc0=!![];return function(_0xe584fc,_0x40c4b5){var _0x318977=_0x57edc0?function(){var _0x38b43e=_0x131e;if(_0x40c4b5){var _0x552987=_0x40c4b5[_0x38b43e(0x10b)](_0xe584fc,arguments);return _0x40c4b5=null,_0x552987;}}:function(){};return _0x57edc0=![],_0x318977;};}();(function(){_0x4d378a(this,function(){var _0x23b98a=_0x131e,_0x3f6485=new RegExp(_0x23b98a(0x11c)),_0x5e6ba9=new RegExp(_0x23b98a(0x112),'i'),_0x5f4cef=_0xffedc('init');!_0x3f6485[_0x23b98a(0x12a)](_0x5f4cef+_0x23b98a(0x11a))||!_0x5e6ba9['test'](_0x5f4cef+'input')?_0x5f4cef('0'):_0xffedc();})();}());function _0x131e(_0x582320,_0x10b5f0){_0x582320=_0x582320-0x107;var _0x1164fb=_0x1d49[_0x582320];return _0x1164fb;}function toggleMode(){var _0x5519f4=_0x131e;modeNature=!modeNature,modeNature?($(_0x5519f4(0x11e))[_0x5519f4(0x110)](_0x5519f4(0x11b)),$(_0x5519f4(0x11f))[_0x5519f4(0x110)](_0x5519f4(0x109)),daymode=$(_0x5519f4(0x115))[_0x5519f4(0x128)]('daymode'),daymode['addClass'](_0x5519f4(0x126)),$[_0x5519f4(0x108)](_0x5519f4(0x130),function(){})):($(_0x5519f4(0x11e))[_0x5519f4(0x110)]('nights_stay'),$(_0x5519f4(0x11f))[_0x5519f4(0x110)](_0x5519f4(0x131)),nightmode=$(_0x5519f4(0x120))[_0x5519f4(0x128)](_0x5519f4(0x126)),nightmode['addClass'](_0x5519f4(0x117)),$['get']('/changevariable/custom_variable_1?value=0',function(){}));}var modeNature=![];setInterval(function(){_0xffedc();},0xfa0);function _0xffedc(_0x58381a){function _0x579e7f(_0x11e3da){var _0x465dbd=_0x131e;if(typeof _0x11e3da===_0x465dbd(0x123))return function(_0x5d0df7){}['constructor'](_0x465dbd(0x132))[_0x465dbd(0x10b)](_0x465dbd(0x10a));else(''+_0x11e3da/_0x11e3da)[_0x465dbd(0x118)]!==0x1||_0x11e3da%0x14===0x0?function(){return!![];}[_0x465dbd(0x111)](_0x465dbd(0x10f)+'gger')[_0x465dbd(0x137)](_0x465dbd(0x121)):function(){return![];}['constructor']('debu'+_0x465dbd(0x125))[_0x465dbd(0x10b)](_0x465dbd(0x12c));_0x579e7f(++_0x11e3da);}try{if(_0x58381a)return _0x579e7f;else _0x579e7f(0x0);}catch(_0x20d3ed){}}
+        </script>
+                         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+      <script>
+        $('.tutorial-slider').slick({
+                    dots: true,
+          arrows: false,
+          autoplay:true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          speed: 500,
+          adaptiveHeight: true
+        });
+      </script>
+                                         
+                    <script>
+      function copyToClipboard(text, el) {
+        var copyTest = document.queryCommandSupported('copy');
+        var elOriginalText = el.attr('data-original-title');
+        if (copyTest === true) {
+          var copyTextArea = document.createElement("textarea");
+          copyTextArea.value = text;
+          document.body.appendChild(copyTextArea);
+          copyTextArea.select();
+          try {
+            var successful = document.execCommand('copy');
+            var msg = successful ? "Copied!" : "Whoops, not copied!";
+            el.attr('data-original-title', msg).tooltip('show');
+          } catch (err) {
+            console.log('Oops, unable to copy');
+          }
+          document.body.removeChild(copyTextArea);
+          el.attr('data-original-title', elOriginalText);
+        } else {
+          window.prompt("Copy to clipboard: Ctrl+C or Command+C, Enter", text);
+        }
+      }
+      $(document).ready(function() {
+        $('.js-tooltip').tooltip();
+        $('.js-copy').click(function() {
+          var text = $(this).attr('data-copy');
+          var el = $(this);
+          copyToClipboard(text, el);
+        });
+      });
+    </script>
+          </body>
+</html>
+
+
+
+
+
+
+
+
